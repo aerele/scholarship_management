@@ -1,0 +1,144 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-03-05 10:57:13.601236",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "search_section",
+  "present_academic_year",
+  "from",
+  "to",
+  "acceptreject",
+  "widow",
+  "type_of_postage",
+  "interview_place",
+  "column_break_fayz",
+  "stream",
+  "name1",
+  "study_group",
+  "course",
+  "repeat",
+  "maa_code",
+  "section_break_iyku",
+  "record"
+ ],
+ "fields": [
+  {
+   "fieldname": "present_academic_year",
+   "fieldtype": "Link",
+   "label": "Present Academic Year",
+   "options": "Academic Year"
+  },
+  {
+   "fieldname": "from",
+   "fieldtype": "Date",
+   "label": "From"
+  },
+  {
+   "fieldname": "to",
+   "fieldtype": "Date",
+   "label": "To"
+  },
+  {
+   "fieldname": "stream",
+   "fieldtype": "Link",
+   "label": "Stream",
+   "options": "Stream"
+  },
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "study_group",
+   "fieldtype": "Link",
+   "label": "Study Group",
+   "options": "Study Group"
+  },
+  {
+   "fieldname": "course",
+   "fieldtype": "Link",
+   "label": "Course",
+   "options": "Course Master"
+  },
+  {
+   "fieldname": "acceptreject",
+   "fieldtype": "Select",
+   "label": "Accept/Reject",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "widow",
+   "fieldtype": "Select",
+   "label": "Widow",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_fayz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type_of_postage",
+   "fieldtype": "Link",
+   "label": "Type of Postage",
+   "options": "Type of Postage Master"
+  },
+  {
+   "fieldname": "interview_place",
+   "fieldtype": "Data",
+   "label": "Interview Place"
+  },
+  {
+   "fieldname": "maa_code",
+   "fieldtype": "Data",
+   "label": "Maa Code"
+  },
+  {
+   "fieldname": "section_break_iyku",
+   "fieldtype": "Section Break",
+   "label": "Record"
+  },
+  {
+   "fieldname": "search_section",
+   "fieldtype": "Section Break",
+   "label": "Search"
+  },
+  {
+   "fieldname": "repeat",
+   "fieldtype": "Select",
+   "label": "Repeat",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "record",
+   "fieldtype": "Table",
+   "label": "Record",
+   "options": "Record"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2025-03-07 13:44:05.081856",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Schedule Call",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

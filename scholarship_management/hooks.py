@@ -86,7 +86,7 @@ app_license = "mit"
 # ------------
 
 # before_install = "scholarship_management.install.before_install"
-# after_install = "scholarship_management.install.after_install"
+after_install = "scholarship_management.scholarship_management.doctype.student.student.party_setup"
 
 # Uninstallation
 # ------------
@@ -133,11 +133,9 @@ app_license = "mit"
 # Hook on document methods and events
 
 # doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
+# 	"Address": {
+# 		"validate": "scholarship_management.scholarship_management.doctype.address.set_city_and_town",
+# 	},
 # }
 
 # Scheduled Tasks

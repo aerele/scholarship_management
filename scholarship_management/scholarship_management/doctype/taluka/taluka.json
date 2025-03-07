@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:taluka",
+ "creation": "2025-03-06 14:08:11.413796",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "taluka"
+ ],
+ "fields": [
+  {
+   "fieldname": "taluka",
+   "fieldtype": "Data",
+   "label": "Taluka",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-06 16:07:34.851368",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Taluka",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

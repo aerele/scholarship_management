@@ -1,0 +1,325 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:AE - {student_id} - {###}",
+ "creation": "2025-03-05 09:34:52.502424",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student_information_section",
+  "select_student",
+  "student_id",
+  "last_scholarship_amount",
+  "last_studying_course",
+  "widow",
+  "student_remark",
+  "column_break_mraf",
+  "student_name",
+  "last_scholarship_date",
+  "last_percentage",
+  "case",
+  "academic_information_section",
+  "previous_studygroup",
+  "previous_academic_year",
+  "previous_yearstudying",
+  "present_academic_year",
+  "present_yearstudying",
+  "stream",
+  "ssc_result",
+  "application_receive_date",
+  "column_break_lvcl",
+  "maa_code",
+  "previous_studying_course",
+  "percentage_application_done",
+  "present_studygroup",
+  "present_studyingcourse",
+  "present_medium",
+  "hsc_result",
+  "repeat",
+  "schoolcollege",
+  "amended_from",
+  "section_break_qgvr",
+  "accept",
+  "reason_for_rejection",
+  "column_break_awzh",
+  "type_of_postage",
+  "academic_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "academic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Academic Information"
+  },
+  {
+   "fieldname": "previous_studygroup",
+   "fieldtype": "Link",
+   "label": "Previous StudyGroup",
+   "options": "Study Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_academic_year",
+   "fieldtype": "Link",
+   "label": "Previous Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "present_academic_year",
+   "fieldtype": "Link",
+   "label": "Present Academic Year",
+   "options": "Academic Year",
+   "reqd": 1
+  },
+  {
+   "fieldname": "present_yearstudying",
+   "fieldtype": "Select",
+   "label": "Present Year(Studying)",
+   "options": "\nFirst\nSecond\nThird\nFourth\nFifth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stream",
+   "fieldtype": "Link",
+   "label": "Stream",
+   "options": "Stream",
+   "reqd": 1
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "ssc_result",
+   "fieldtype": "Int",
+   "label": "SSC Result",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "application_receive_date",
+   "fieldtype": "Date",
+   "label": "Application Receive Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_lvcl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "previous_studying_course",
+   "fieldtype": "Link",
+   "label": "Previous Studying (Course)",
+   "options": "Course Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "percentage_application_done",
+   "fieldtype": "Int",
+   "label": "Percentage Application Done",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "present_studygroup",
+   "fieldtype": "Link",
+   "label": "Present StudyGroup",
+   "options": "Study Group",
+   "reqd": 1
+  },
+  {
+   "fieldname": "present_studyingcourse",
+   "fieldtype": "Link",
+   "label": "Present Studying(Course)",
+   "options": "Course Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "present_medium",
+   "fieldtype": "Link",
+   "label": "Present Medium",
+   "options": "Present Medium",
+   "reqd": 1
+  },
+  {
+   "fieldname": "hsc_result",
+   "fieldtype": "Int",
+   "label": "HSC Result",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "repeat",
+   "fieldtype": "Select",
+   "label": "Repeat",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "schoolcollege",
+   "fieldtype": "Link",
+   "label": "School/College",
+   "options": "School College",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Academic Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "select_student.student_id",
+   "fieldname": "student_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "maa_code",
+   "fieldtype": "Data",
+   "label": "MAA Code",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_student.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_mraf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_scholarship_amount",
+   "fieldtype": "Int",
+   "label": "Last Scholarship Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "last_studying_course",
+   "fieldtype": "Link",
+   "label": "Last Studying Course",
+   "options": "Course Master"
+  },
+  {
+   "fieldname": "last_scholarship_date",
+   "fieldtype": "Date",
+   "label": "Last Scholarship Date"
+  },
+  {
+   "fieldname": "last_percentage",
+   "fieldtype": "Int",
+   "label": "Last Percentage"
+  },
+  {
+   "fetch_from": "select_student.case",
+   "fieldname": "case",
+   "fieldtype": "Data",
+   "label": "Case",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "select_student.widow_case",
+   "fieldname": "widow",
+   "fieldtype": "Data",
+   "label": "Widow",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_information_section",
+   "fieldtype": "Section Break",
+   "label": "Student Information"
+  },
+  {
+   "fieldname": "section_break_qgvr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "accept",
+   "fieldtype": "Select",
+   "label": "Accept",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reason_for_rejection",
+   "fieldtype": "Link",
+   "label": "Reason for Rejection",
+   "options": "Reason for Rejection"
+  },
+  {
+   "fieldname": "column_break_awzh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "type_of_postage",
+   "fieldtype": "Link",
+   "label": "Type of Postage",
+   "options": "Type of Postage Master",
+   "reqd": 1
+  },
+  {
+   "fieldname": "select_student",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Select Student",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "select_student.remark",
+   "fieldname": "student_remark",
+   "fieldtype": "Data",
+   "label": "Remark",
+   "read_only": 1
+  },
+  {
+   "fieldname": "academic_remarks",
+   "fieldtype": "Data",
+   "label": "Remarks",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_yearstudying",
+   "fieldtype": "Select",
+   "label": "Previous Year(Studying)",
+   "options": "\nFirst\nSecond\nThird\nFourth\nFifth",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-07 12:37:15.114096",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Academic Entry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

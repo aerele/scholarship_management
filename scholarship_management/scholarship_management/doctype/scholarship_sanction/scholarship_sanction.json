@@ -1,0 +1,149 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SS-{maa_code}",
+ "creation": "2025-03-05 11:56:11.611650",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "maa_code",
+  "annual_house_hold_income",
+  "affordability_of_educational_expenses",
+  "amount_sanctioned",
+  "target_percentage",
+  "photo",
+  "neft",
+  "column_break_hscj",
+  "name1",
+  "annual_educational_expenses",
+  "expected_scholarship_amount",
+  "travelling_expense",
+  "scholarship_sanctioned_date",
+  "remarks",
+  "trust",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Link",
+   "label": "Name",
+   "options": "Student"
+  },
+  {
+   "fieldname": "annual_house_hold_income",
+   "fieldtype": "Int",
+   "label": "Annual House Hold Income",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "annual_educational_expenses",
+   "fieldtype": "Int",
+   "label": "Annual Educational Expenses",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "affordability_of_educational_expenses",
+   "fieldtype": "Int",
+   "label": "Affordability Of Educational Expenses",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "expected_scholarship_amount",
+   "fieldtype": "Int",
+   "label": "Expected Scholarship Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "amount_sanctioned",
+   "fieldtype": "Int",
+   "label": "Amount Sanctioned",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "travelling_expense",
+   "fieldtype": "Int",
+   "label": "Travelling Expense",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "target_percentage",
+   "fieldtype": "Int",
+   "label": "Target Percentage",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "scholarship_sanctioned_date",
+   "fieldtype": "Date",
+   "label": "Scholarship Sanctioned Date"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "trust",
+   "fieldtype": "Select",
+   "label": "Trust",
+   "options": "Maa"
+  },
+  {
+   "fieldname": "neft",
+   "fieldtype": "Select",
+   "label": "NEFT",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_hscj",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "name1.maa_code",
+   "fieldname": "maa_code",
+   "fieldtype": "Data",
+   "label": "Maa code"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Scholarship Sanction",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-07 10:56:47.711218",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Scholarship Sanction",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

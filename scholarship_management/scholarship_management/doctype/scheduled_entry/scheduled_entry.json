@@ -1,0 +1,174 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:SE-{maa_code}",
+ "creation": "2025-03-05 10:11:39.924593",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student_record",
+  "maa_code",
+  "name1",
+  "percentage",
+  "number_of_call_times",
+  "interview_place",
+  "remarks",
+  "call_time",
+  "column_break_ifco",
+  "previous_studygroup",
+  "present_studygroup",
+  "previous_studying_course",
+  "present_studying_course",
+  "previous_yearstudying",
+  "present_yearstudying",
+  "call_date",
+  "call_letter_sent",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "student_record.student_name",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "label": "Name"
+  },
+  {
+   "fieldname": "interview_place",
+   "fieldtype": "Data",
+   "label": "Interview Place"
+  },
+  {
+   "fetch_from": "student_record.percentage_application_done",
+   "fieldname": "percentage",
+   "fieldtype": "Data",
+   "label": "Percentage",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "number_of_call_times",
+   "fieldtype": "Int",
+   "label": "Number of Call times",
+   "non_negative": 1
+  },
+  {
+   "fetch_from": "student_record.academic_remarks",
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "call_time",
+   "fieldtype": "Time",
+   "label": "Call Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ifco",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "student_record.previous_studygroup",
+   "fieldname": "previous_studygroup",
+   "fieldtype": "Link",
+   "label": "Previous StudyGroup",
+   "options": "Study Group"
+  },
+  {
+   "fetch_from": "student_record.present_studygroup",
+   "fieldname": "present_studygroup",
+   "fieldtype": "Link",
+   "label": "Present StudyGroup",
+   "options": "Study Group"
+  },
+  {
+   "fetch_from": "student_record.previous_studying_course",
+   "fieldname": "previous_studying_course",
+   "fieldtype": "Link",
+   "label": "Previous Studying (Course)",
+   "options": "Course Master"
+  },
+  {
+   "fetch_from": "student_record.present_studyingcourse",
+   "fieldname": "present_studying_course",
+   "fieldtype": "Link",
+   "label": "Present Studying (Course)",
+   "options": "Course Master"
+  },
+  {
+   "fetch_from": "student_record.previous_yearstudying",
+   "fieldname": "previous_yearstudying",
+   "fieldtype": "Select",
+   "label": "Previous Year(Studying)",
+   "options": "\nFirst\nSecond\nThird\nFourth\nFifth"
+  },
+  {
+   "fetch_from": "student_record.present_yearstudying",
+   "fieldname": "present_yearstudying",
+   "fieldtype": "Select",
+   "label": "Present Year(Studying)",
+   "options": "\nFirst\nSecond\nThird\nFourth\nFifth"
+  },
+  {
+   "fieldname": "call_letter_sent",
+   "fieldtype": "Select",
+   "label": "Call Letter Sent",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fetch_from": "student_record.maa_code",
+   "fieldname": "maa_code",
+   "fieldtype": "Data",
+   "label": "Maa Code"
+  },
+  {
+   "fetch_if_empty": 1,
+   "fieldname": "call_date",
+   "fieldtype": "Date",
+   "label": "Call Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "student_record",
+   "fieldtype": "Link",
+   "label": "Student Record",
+   "options": "Academic Entry"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Scheduled Entry",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-07 13:17:50.972128",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Scheduled Entry",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

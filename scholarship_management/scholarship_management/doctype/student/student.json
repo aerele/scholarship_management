@@ -1,0 +1,166 @@
+{
+ "actions": [],
+ "autoname": "field:student_id",
+ "creation": "2025-03-03 18:10:59.877796",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "student_information_section",
+  "student_id",
+  "student_name",
+  "date_of_birth",
+  "age",
+  "gender",
+  "interview_place",
+  "column_break_wads",
+  "maa_code",
+  "widow_case",
+  "ganchi",
+  "category",
+  "case",
+  "photo",
+  "section_break_udcx",
+  "remark",
+  "address_tab",
+  "address_html"
+ ],
+ "fields": [
+  {
+   "fieldname": "student_information_section",
+   "fieldtype": "Section Break",
+   "label": "Student Information"
+  },
+  {
+   "fieldname": "student_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of birth",
+   "reqd": 1
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age",
+   "non_negative": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interview_place",
+   "fieldtype": "Data",
+   "label": "Interview Place",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_wads",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "maa_code",
+   "fieldtype": "Data",
+   "label": "MAA Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "widow_case",
+   "fieldtype": "Select",
+   "label": "Widow Case",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ganchi",
+   "fieldtype": "Select",
+   "label": "Ganchi",
+   "options": "\nYes\nNo",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "label": "Category",
+   "options": "\nGeneral Category\nOBC\nSC\nST\nEWS\nMuslim\nNon-Muslim\nChristian\nHindu\nSikh\nBuddhist\nJain\nParsi\nJewish\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "case",
+   "fieldtype": "Select",
+   "label": "Case",
+   "options": "\nGeneral\nAdopted Child\nDivorcee\nOrphan\nSingle Parent Child\nHandicap\nMajor illness\nAbandoned Child\nGirls SCH",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_udcx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "remark",
+   "fieldtype": "Data",
+   "label": "Remark"
+  },
+  {
+   "fieldname": "address_tab",
+   "fieldtype": "Tab Break",
+   "label": "Address"
+  },
+  {
+   "fieldname": "address_html",
+   "fieldtype": "HTML",
+   "label": "Address HTML"
+  }
+ ],
+ "image_field": "photo",
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-03-07 10:58:23.378282",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Student",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

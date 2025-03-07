@@ -1,0 +1,142 @@
+import frappe
+from frappe.query_builder import DocType
+from frappe.model.document import Document
+
+class ScheduleCall(Document):
+	@frappe.whitelist()
+	def search_records(self, **kwargs):
+		fields = frappe._dict(kwargs)
+		
+		student_name_filter = fields.get("name1")
+		maa_code = fields.get("maa_code")
+		present_academic_year = fields.get("present_academic_year")
+		from_date = fields.get("from")
+		to_date = fields.get("to")
+		interview_place = fields.get("interview_place")
+		stream = fields.get("stream")
+		study_group = fields.get("study_group")
+		course = fields.get("course")
+		acceptreject = fields.get("acceptreject")
+		widow = fields.get("widow")
+		type_of_postage = fields.get("type_of_postage")
+		repeat = fields.get("repeat")
+		
+		academic_entry = DocType("Academic Entry")
+		student = DocType("Student")
+		
+		query = (
+			frappe.qb.from_(academic_entry)
+			.join(student)
+			.on(academic_entry.student_id == student.student_id)
+			.select(
+				academic_entry.maa_code,
+				student.student_name,
+				academic_entry.accept,  
+				student.student_id,      
+			)
+		)
+		if student_name_filter:
+			query = query.where(student.student_name == student_name_filter)
+		if interview_place:
+			query = query.where(student.interview_place == interview_place)
+		if widow:
+			query = query.where(student.widow_case == widow)
+		
+		if maa_code:
+			query = query.where(academic_entry.maa_code == maa_code)
+		if present_academic_year:
+			query = query.where(academic_entry.present_academic_year == present_academic_year)
+		if study_group:
+			query = query.where(academic_entry.present_studygroup == study_group)
+		if stream:
+			query = query.where(academic_entry.stream == stream)
+		if course:
+			query = query.where(academic_entry.present_studygroup == course)
+		if acceptreject:
+			query = query.where(academic_entry.accept == acceptreject)
+		if type_of_postage:
+			query = query.where(academic_entry.type_of_postage == type_of_postage)
+		if repeat:
+			query = query.where(academic_entry.repeat == repeat)
+
+		if from_date and to_date:
+			query = query.where(academic_entry.application_receive_date.between(from_date, to_date))
+		elif from_date:
+			query = query.where(academic_entry.application_receive_date >= from_date)
+		elif to_date:
+			query = query.where(academic_entry.application_receive_date <= to_date)
+
+		
+		results = query.run()
+		result_keys = [
+			"maa_code", "student_name", "accept","student_id", "call_letter",
+			 "call_date", "call_time"
+		]
+		
+		self.set("record", [])
+		for row in results:
+			row_dict = dict(zip(result_keys, row))
+			child_row = self.append("record", {})  
+			child_row.maa_code = row_dict.get("maa_code")
+			child_row.name1 = row_dict.get("student_name")
+			child_row.rejected = row_dict.get("accept")
+			child_row.call_letter = row_dict.get("call_letter","")
+			child_row.call_date = row_dict.get("call_date") or ""
+			child_row.call_time = row_dict.get("call_time") or ""
+			student_id = row_dict.get("student_id")
+			address_dict = get_student_address(student_id)
+			child_row.address = address_dict.get("address", "")
+			child_row.phone_no = address_dict.get("phone","")
+		
+		self.save()
+	
+		return results
+	
+	@frappe.whitelist()
+	def schedule_selected_entry(self, maa_codes, call_date, call_time):
+		"""Process multiple selected records and insert them into 'Scheduled Entry'."""
+		if not isinstance(maa_codes, list):
+			frappe.throw("Invalid data format. Expected a list of maa_codes.")
+
+		created_entries = []
+
+		for maa_code in maa_codes:
+			maa_code = maa_code.strip()
+
+			academy_details = frappe.get_list(
+				"Academic Entry", 
+				filters={"maa_code": maa_code,"docstatus": ["in", [0, 1]] }, 
+				pluck="name"
+			)
+			print("academic detaijs", academy_details)
+
+			if academy_details:
+				scheduled_entry = frappe.get_doc({
+					"doctype": "Scheduled Entry",
+					"student_record": academy_details[0],
+					"call_date": call_date,
+					"call_time": call_time,
+					"status": "Scheduled"
+				})
+				scheduled_entry.insert()  # Save in Draft
+				created_entries.append(scheduled_entry.name)
+
+		return created_entries if created_entries else "No entries created."
+
+
+def get_student_address(student_id):
+	address_list = frappe.get_all("Address", ["name"])
+	for address in address_list:
+		address_doc = frappe.get_doc("Address", address.name)
+		for link in address_doc.links:
+			if link.link_doctype == "Student" and link.link_name == student_id:
+				return {
+					"address": address_doc.address_line1,
+					"city": address_doc.city,
+					"phone": address_doc.phone or address_doc.custom_mobile,
+				}
+
+	return {}  
+
+	
+	
