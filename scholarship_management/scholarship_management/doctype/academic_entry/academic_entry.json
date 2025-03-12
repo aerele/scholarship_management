@@ -18,6 +18,7 @@
   "last_scholarship_date",
   "last_percentage",
   "case",
+  "interview_place",
   "academic_information_section",
   "previous_studygroup",
   "previous_academic_year",
@@ -251,9 +252,11 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval:doc.accept === \"No\"",
    "fieldname": "reason_for_rejection",
    "fieldtype": "Link",
    "label": "Reason for Rejection",
+   "mandatory_depends_on": "eval:doc.accept === \"No\"",
    "options": "Reason for Rejection"
   },
   {
@@ -294,12 +297,19 @@
    "label": "Previous Year(Studying)",
    "options": "\nFirst\nSecond\nThird\nFourth\nFifth",
    "reqd": 1
+  },
+  {
+   "fetch_from": "select_student.interview_place",
+   "fieldname": "interview_place",
+   "fieldtype": "Link",
+   "label": "Interview Place",
+   "options": "Town Village"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-07 12:37:15.114096",
+ "modified": "2025-03-12 11:47:11.926501",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",

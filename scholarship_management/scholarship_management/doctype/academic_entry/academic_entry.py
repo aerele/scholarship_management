@@ -2,17 +2,15 @@ import frappe
 from frappe.model.document import Document
 
 class AcademicEntry(Document):
-	def validate(self):
-		print('validate')
+	def before_save(self):
+		self.validate_academic_entry()
+
 		existing_entry = frappe.get_value("Academic Entry",{"student_id": self.student_id, "docstatus":1},["maa_code", "ssc_result", "hsc_result"])
-		print("existing entry", existing_entry)
 		if existing_entry:
 			existing_maa_code, ssc_marks, hsc_marks = existing_entry
 			self.maa_code = existing_maa_code
-			if not self.ssc_result and ssc_marks is not None:
-				self.ssc_result = ssc_marks  
-			if not self.hsc_result and hsc_marks is not None:
-				self.hsc_result = hsc_marks  
+			self.ssc_result = ssc_marks  
+			self.hsc_result = hsc_marks  
 
 	def on_submit(self):
 		existing_maa_code = frappe.get_value("Academic Entry",{"student_id": self.student_id},"maa_code")
@@ -49,3 +47,27 @@ class AcademicEntry(Document):
 		student_name = frappe.db.get_value("Student", {"student_id": self.student_id})
 		if student_name:
 			frappe.db.set_value("Student", {"student_id": self.student_id}, "maa_code", self.maa_code)
+
+
+	def validate_academic_entry(self):
+		"""Validate duplicate academic entry"""
+		academic_entry = frappe.get_list(
+			"Academic Entry",
+			filters={
+				"student_id": self.student_id,
+				"previous_studygroup": self.previous_studygroup,
+				"previous_academic_year": self.previous_academic_year,
+				"previous_yearstudying": self.previous_yearstudying,
+				"present_academic_year": self.present_academic_year,
+				"present_yearstudying": self.present_yearstudying,
+				"stream": self.stream,
+				"present_studyingcourse": self.present_studyingcourse,
+				"present_studygroup": self.present_studygroup,
+				"previous_studying_course": self.previous_studying_course,
+				"docstatus": 1
+			},
+			fields=["name"]
+		)
+
+		if academic_entry:
+			frappe.throw(f"Academic Entry already exists for this student {academic_entry[0].name}")

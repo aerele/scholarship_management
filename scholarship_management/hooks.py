@@ -29,7 +29,7 @@ app_license = "mit"
 # app_include_js = "/assets/scholarship_management/js/scholarship_management.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/scholarship_management/css/scholarship_management.css"
+# web_include_css = "/assets/schoverrideolarship_management/css/scholarship_management.css"
 # web_include_js = "/assets/scholarship_management/js/scholarship_management.js"
 
 # include custom scss in every website theme (without file extension ".scss")
@@ -43,7 +43,7 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {"Payment Entry" : "public/js/payment_entry.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -132,11 +132,12 @@ after_install = "scholarship_management.scholarship_management.doctype.student.s
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"Address": {
-# 		"validate": "scholarship_management.scholarship_management.doctype.address.set_city_and_town",
-# 	},
-# }
+doc_events = {
+    "Payment Entry": {
+        "on_submit": "scholarship_management.customization.payment_entry.payment_entry.on_submit",
+        "on_cancel": "scholarship_management.customization.payment_entry.payment_entry.on_cancel"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
@@ -167,9 +168,11 @@ after_install = "scholarship_management.scholarship_management.doctype.student.s
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "scholarship_management.event.get_events"
-# }
+override_whitelisted_methods = {
+    "erpnext.accounts.doctype.payment_entry.payment_entry.get_reference_details": "scholarship_management.customization.payment_entry.payment_entry.get_reference_details"
+}
+override_doctype_class = {"Payment Entry": "scholarship_management.customization.payment_entry.payment_entry.CustomPaymentEntry"}
+
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

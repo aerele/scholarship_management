@@ -1,18 +1,21 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SS-{maa_code}",
+ "autoname": "format:SS-{maa_code}-{##}",
  "creation": "2025-03-05 11:56:11.611650",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "student_record",
+  "student_academic_record",
   "maa_code",
   "annual_house_hold_income",
   "affordability_of_educational_expenses",
-  "amount_sanctioned",
+  "grand_total",
   "target_percentage",
   "photo",
-  "neft",
+  "mode_of_payment",
+  "outstanding_amount",
   "column_break_hscj",
   "name1",
   "annual_educational_expenses",
@@ -21,14 +24,17 @@
   "scholarship_sanctioned_date",
   "remarks",
   "trust",
+  "bank_account",
+  "company",
   "amended_from"
  ],
  "fields": [
   {
+   "fetch_from": "student_record.student_name",
    "fieldname": "name1",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Name",
-   "options": "Student"
+   "reqd": 1
   },
   {
    "fieldname": "annual_house_hold_income",
@@ -40,7 +46,8 @@
    "fieldname": "annual_educational_expenses",
    "fieldtype": "Int",
    "label": "Annual Educational Expenses",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "affordability_of_educational_expenses",
@@ -52,13 +59,8 @@
    "fieldname": "expected_scholarship_amount",
    "fieldtype": "Int",
    "label": "Expected Scholarship Amount",
-   "non_negative": 1
-  },
-  {
-   "fieldname": "amount_sanctioned",
-   "fieldtype": "Int",
-   "label": "Amount Sanctioned",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "travelling_expense",
@@ -75,12 +77,15 @@
   {
    "fieldname": "scholarship_sanctioned_date",
    "fieldtype": "Date",
-   "label": "Scholarship Sanctioned Date"
+   "label": "Scholarship Sanctioned Date",
+   "reqd": 1
   },
   {
+   "fetch_from": "student_record.photo",
    "fieldname": "photo",
    "fieldtype": "Attach Image",
-   "label": "Photo"
+   "label": "Photo",
+   "reqd": 1
   },
   {
    "fieldname": "remarks",
@@ -91,23 +96,21 @@
    "fieldname": "trust",
    "fieldtype": "Select",
    "label": "Trust",
-   "options": "Maa"
-  },
-  {
-   "fieldname": "neft",
-   "fieldtype": "Select",
-   "label": "NEFT",
-   "options": "\nYes\nNo"
+   "options": "\nMaa",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_hscj",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "name1.maa_code",
+   "fetch_from": "student_record.maa_code",
    "fieldname": "maa_code",
    "fieldtype": "Data",
-   "label": "Maa code"
+   "in_list_view": 1,
+   "label": "Maa code",
+   "options": "Student",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -118,12 +121,64 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fetch_from": "name1.maa_code",
+   "fieldname": "student_record",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Record",
+   "options": "Student",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mode_of_payment",
+   "fieldtype": "Select",
+   "label": "Mode Of Payment",
+   "options": "\nWire Transfer\nCheque",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "outstanding_amount",
+   "fieldtype": "Float",
+   "label": "Outstanding Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "grand_total",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Amount Sanctioned",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "student_academic_record",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Student Academic Record",
+   "options": "Academic Entry",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-07 10:56:47.711218",
+ "modified": "2025-03-12 18:22:30.493232",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship Sanction",

@@ -91,39 +91,33 @@ class ScheduleCall(Document):
 		self.save()
 	
 		return results
-	
+		
 	@frappe.whitelist()
 	def schedule_selected_entry(self, maa_codes, call_date, call_time):
-		"""Process multiple selected records and insert them into 'Scheduled Entry'."""
 		if not isinstance(maa_codes, list):
 			frappe.throw("Invalid data format. Expected a list of maa_codes.")
 
-		created_entries = []
-
 		for maa_code in maa_codes:
-			maa_code = maa_code.strip()
-
-			academy_details = frappe.get_list(
-				"Academic Entry", 
-				filters={"maa_code": maa_code,"docstatus": ["in", [0, 1]] }, 
-				pluck="name"
+			latest_academic_entry = frappe.get_list(
+				"Academic Entry",
+				filters={"maa_code": maa_code, "docstatus": ["in", [0, 1]]},
+				fields=["name", "creation"],
+				order_by="creation DESC", 
+				limit=1
 			)
-			print("academic detaijs", academy_details)
+			if not latest_academic_entry:
+				frappe.throw(f"No academic entry found for {maa_code}.")
 
-			if academy_details:
-				scheduled_entry = frappe.get_doc({
-					"doctype": "Scheduled Entry",
-					"student_record": academy_details[0],
-					"call_date": call_date,
-					"call_time": call_time,
-					"status": "Scheduled"
-				})
-				scheduled_entry.insert()  # Save in Draft
-				created_entries.append(scheduled_entry.name)
-
-		return created_entries if created_entries else "No entries created."
-
-
+			scheduled_entry = frappe.get_doc({
+				"doctype": "Scheduled Entry",
+				"student_academic_record": latest_academic_entry[0].get('name'),
+				"call_date": call_date,
+				"call_time": call_time,
+				"status": None
+			})
+			scheduled_entry.insert() 
+		return scheduled_entry.name
+	
 def get_student_address(student_id):
 	address_list = frappe.get_all("Address", ["name"])
 	for address in address_list:

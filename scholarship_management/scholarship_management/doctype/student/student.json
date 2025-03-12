@@ -68,8 +68,9 @@
   },
   {
    "fieldname": "interview_place",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Interview Place",
+   "options": "Town Village",
    "reqd": 1
   },
   {
@@ -80,7 +81,8 @@
    "fieldname": "maa_code",
    "fieldtype": "Data",
    "label": "MAA Code",
-   "read_only": 1
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "gender",
@@ -140,7 +142,7 @@
  "image_field": "photo",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-07 10:58:23.378282",
+ "modified": "2025-03-12 16:40:07.721850",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Student",

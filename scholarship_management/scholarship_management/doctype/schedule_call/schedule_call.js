@@ -34,14 +34,12 @@ frappe.ui.form.on("Schedule Call", {
 
     schedule_entry: function(frm) {
         let selected_rows = frm.fields_dict["record"].grid.get_selected_children();
-
         if (selected_rows.length > 0) {
             let current_date = frappe.datetime.now_date();
             let current_time = frappe.datetime.now_time();
 
             let selected_maa_codes = selected_rows.map(row => row.maa_code);
-
-            frappe.call({
+            frm.call({
 				doc: frm.doc,
                 method: "schedule_selected_entry",
                 args: {

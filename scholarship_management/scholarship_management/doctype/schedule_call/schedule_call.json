@@ -87,8 +87,9 @@
   },
   {
    "fieldname": "interview_place",
-   "fieldtype": "Data",
-   "label": "Interview Place"
+   "fieldtype": "Link",
+   "label": "Interview Place",
+   "options": "Town Village"
   },
   {
    "fieldname": "maa_code",
@@ -121,7 +122,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-03-07 13:44:05.081856",
+ "modified": "2025-03-12 11:48:06.469421",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Schedule Call",

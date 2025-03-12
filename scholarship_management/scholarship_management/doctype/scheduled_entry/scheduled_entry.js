@@ -1,7 +1,10 @@
-
-frappe.ui.form.on("Scheduled Entry", {
-    refresh(frm) {
-        frm.set_value("call_date", frappe.datetime.now_date()); 
-        frm.set_value("call_time", frappe.datetime.now_time());
+frappe.listview_settings['Scheduled Entry'] = {
+    get_indicator(doc) {
+        let status_map = {
+            "Draft": ["Draft", "orange", "status,=,Draft"],
+            "Accept": ["Accepted", "green", "status,=,Accept"],
+            "Reject": ["Rejected", "red", "status,=,Reject"]
+        };
+        return status_map[doc.status] || ["Unknown", "gray"];
     }
-});
+};

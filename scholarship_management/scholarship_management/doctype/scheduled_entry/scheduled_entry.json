@@ -1,11 +1,12 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SE-{maa_code}",
+ "autoname": "format:SE-{maa_code}-{##}",
  "creation": "2025-03-05 10:11:39.924593",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "student_academic_record",
   "student_record",
   "maa_code",
   "name1",
@@ -22,23 +23,26 @@
   "previous_yearstudying",
   "present_yearstudying",
   "call_date",
-  "call_letter_sent",
+  "status",
   "amended_from"
  ],
  "fields": [
   {
-   "fetch_from": "student_record.student_name",
+   "fetch_from": "student_academic_record.student_name",
    "fieldname": "name1",
    "fieldtype": "Data",
    "label": "Name"
   },
   {
+   "fetch_from": "student_academic_record.interview_place",
    "fieldname": "interview_place",
-   "fieldtype": "Data",
-   "label": "Interview Place"
+   "fieldtype": "Link",
+   "label": "Interview Place",
+   "options": "Town Village"
   },
   {
-   "fetch_from": "student_record.percentage_application_done",
+   "fetch_from": "student_academic_record.percentage_application_done",
+   "fetch_if_empty": 1,
    "fieldname": "percentage",
    "fieldtype": "Data",
    "label": "Percentage",
@@ -51,7 +55,6 @@
    "non_negative": 1
   },
   {
-   "fetch_from": "student_record.academic_remarks",
    "fieldname": "remarks",
    "fieldtype": "Data",
    "label": "Remarks"
@@ -68,55 +71,55 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "student_record.previous_studygroup",
+   "fetch_from": "student_academic_record.previous_studygroup",
+   "fetch_if_empty": 1,
    "fieldname": "previous_studygroup",
    "fieldtype": "Link",
    "label": "Previous StudyGroup",
    "options": "Study Group"
   },
   {
-   "fetch_from": "student_record.present_studygroup",
+   "fetch_from": "student_academic_record.present_studygroup",
+   "fetch_if_empty": 1,
    "fieldname": "present_studygroup",
    "fieldtype": "Link",
    "label": "Present StudyGroup",
    "options": "Study Group"
   },
   {
-   "fetch_from": "student_record.previous_studying_course",
+   "fetch_from": "student_academic_record.previous_studying_course",
+   "fetch_if_empty": 1,
    "fieldname": "previous_studying_course",
    "fieldtype": "Link",
    "label": "Previous Studying (Course)",
    "options": "Course Master"
   },
   {
-   "fetch_from": "student_record.present_studyingcourse",
+   "fetch_from": "student_academic_record.present_studyingcourse",
+   "fetch_if_empty": 1,
    "fieldname": "present_studying_course",
    "fieldtype": "Link",
    "label": "Present Studying (Course)",
    "options": "Course Master"
   },
   {
-   "fetch_from": "student_record.previous_yearstudying",
+   "fetch_from": "student_academic_record.previous_yearstudying",
+   "fetch_if_empty": 1,
    "fieldname": "previous_yearstudying",
    "fieldtype": "Select",
    "label": "Previous Year(Studying)",
    "options": "\nFirst\nSecond\nThird\nFourth\nFifth"
   },
   {
-   "fetch_from": "student_record.present_yearstudying",
+   "fetch_from": "student_academic_record.present_yearstudying",
+   "fetch_if_empty": 1,
    "fieldname": "present_yearstudying",
    "fieldtype": "Select",
    "label": "Present Year(Studying)",
    "options": "\nFirst\nSecond\nThird\nFourth\nFifth"
   },
   {
-   "fieldname": "call_letter_sent",
-   "fieldtype": "Select",
-   "label": "Call Letter Sent",
-   "options": "\nYes\nNo"
-  },
-  {
-   "fetch_from": "student_record.maa_code",
+   "fetch_from": "student_academic_record.maa_code",
    "fieldname": "maa_code",
    "fieldtype": "Data",
    "label": "Maa Code"
@@ -129,10 +132,11 @@
    "read_only": 1
   },
   {
+   "fetch_from": "student_academic_record.select_student",
    "fieldname": "student_record",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Student Record",
-   "options": "Academic Entry"
+   "options": "Student"
   },
   {
    "fieldname": "amended_from",
@@ -143,12 +147,25 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nAccept\nReject"
+  },
+  {
+   "fieldname": "student_academic_record",
+   "fieldtype": "Link",
+   "label": "Student Academic Record",
+   "options": "Academic Entry"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-07 13:17:50.972128",
+ "modified": "2025-03-12 11:47:38.321232",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scheduled Entry",
