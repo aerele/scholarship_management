@@ -1,5 +1,5 @@
 frappe.listview_settings['Scheduled Entry'] = {
-    get_indicator(doc) {
+    get_indicator: function(doc) {
         let status_map = {
             "Draft": ["Draft", "orange", "status,=,Draft"],
             "Accept": ["Accepted", "green", "status,=,Accept"],

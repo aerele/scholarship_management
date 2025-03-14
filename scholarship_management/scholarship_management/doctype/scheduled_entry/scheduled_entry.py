@@ -31,5 +31,5 @@ class ScheduledEntry(Document):
 			fields=["name"])
 		if existing_scholarship_sanction:
 			frappe.throw(f"Scholarship Sanction already created for student record {existing_scholarship_sanction[0].name}")
-		else:		
+		else:
 			self.create_scholarship_sanction()

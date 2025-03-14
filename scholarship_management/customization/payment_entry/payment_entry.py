@@ -50,30 +50,32 @@ class CustomPaymentEntry(PaymentEntry):
 						d.db_set(field, value)
 
 def on_submit(doc, event):
-    update_outstanding_amount(doc, action="submit")
+	update_outstanding_amount(doc, action="submit")
+	update_outstanding_status(doc)
 
 def on_cancel(doc, event):
-    update_outstanding_amount(doc, action="cancel")
+	update_outstanding_amount(doc, action="cancel")
+	update_outstanding_status(doc)
 
 def update_outstanding_amount(doc, action):
-    for reference in doc.references:
-        if reference.reference_doctype == "Scholarship Sanction" and reference.reference_name:
-            if action == "submit":
-                new_outstanding = reference.outstanding_amount - reference.allocated_amount
-            elif action == "cancel":
-                paid_amount = frappe.get_all(
-                    "Payment Entry Reference", 
-                    filters={
-                        "reference_doctype": "Scholarship Sanction", 
-                        "reference_name": reference.reference_name, 
-                        "parent": ["!=", doc.name],
-                        "docstatus": 1
-                    },
-                    fields=["sum(allocated_amount) as paid_amount"]
-                )[0].paid_amount or 0
-                new_outstanding = reference.total_amount - flt(paid_amount)
-            
-            frappe.db.set_value("Scholarship Sanction", reference.reference_name, "outstanding_amount", new_outstanding)
+	for reference in doc.references:
+		if reference.reference_doctype == "Scholarship Sanction" and reference.reference_name:
+			if action == "submit":
+				new_outstanding = reference.outstanding_amount - reference.allocated_amount
+			elif action == "cancel":
+				paid_amount = frappe.get_all(
+					"Payment Entry Reference", 
+					filters={
+						"reference_doctype": "Scholarship Sanction", 
+						"reference_name": reference.reference_name, 
+						"parent": ["!=", doc.name],
+						"docstatus": 1
+					},
+					fields=["sum(allocated_amount) as paid_amount"]
+				)[0].paid_amount or 0
+				new_outstanding = reference.total_amount - flt(paid_amount)
+			
+			frappe.db.set_value("Scholarship Sanction", reference.reference_name, "outstanding_amount", new_outstanding)
 
 
 
@@ -166,3 +168,24 @@ def get_reference_details(
 		res.update({"account": account})
 		
 	return res
+
+def update_outstanding_status(doc):
+	for d in doc.get("references"):
+		if d.reference_doctype == "Scholarship Sanction" and d.reference_name:
+			scholarship_amount = frappe.get_value("Scholarship Sanction",  {"name": d.reference_name, "docstatus": 1}, ["outstanding_amount", "grand_total"], as_dict=True)
+			grand_total = scholarship_amount.get("grand_total")
+			outstanding_amount = scholarship_amount.get("outstanding_amount")
+			if (outstanding_amount == 0):
+				status = "Paid"
+				update_status(status, d.reference_name)
+			elif (outstanding_amount > 0 and outstanding_amount < grand_total):
+				status = "Partially Paid"
+				update_status(status, d.reference_name)
+			elif (outstanding_amount == grand_total):
+				status = "Not Paid"
+				update_status(status, d.reference_name)
+
+def update_status(status,reference_name):
+	doc = frappe.get_doc("Scholarship Sanction", reference_name)
+	doc.status = status
+	doc.save()

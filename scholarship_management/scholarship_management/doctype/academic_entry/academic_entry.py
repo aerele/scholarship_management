@@ -4,23 +4,12 @@ from frappe.model.document import Document
 class AcademicEntry(Document):
 	def before_save(self):
 		self.validate_academic_entry()
-
-		existing_entry = frappe.get_value("Academic Entry",{"student_id": self.student_id, "docstatus":1},["maa_code", "ssc_result", "hsc_result"])
-		if existing_entry:
-			existing_maa_code, ssc_marks, hsc_marks = existing_entry
-			self.maa_code = existing_maa_code
-			self.ssc_result = ssc_marks  
-			self.hsc_result = hsc_marks  
+		# self.update_student_mark_for_existing_student()
 
 	def on_submit(self):
-		existing_maa_code = frappe.get_value("Academic Entry",{"student_id": self.student_id},"maa_code")
-		if existing_maa_code:
-			self.maa_code = existing_maa_code
-		else:
-			self.maa_code = self.generate_new_maa_code()
-			self.db_set("maa_code", self.maa_code) 
+		self.update_existing_student_maa_code()
+		self.update_new_student_maa_code()
 
-		self.update_student_maa_code()
 
 	def generate_new_maa_code(self):
 		"""Generate maa code for new student"""
@@ -42,12 +31,11 @@ class AcademicEntry(Document):
 		new_number = last_number + 1
 		return f"MFVA{new_number:05d}"
 
-	def update_student_maa_code(self):
+	def update_new_student_maa_code(self):
 		"""Update student maa code only new student"""
 		student_name = frappe.db.get_value("Student", {"student_id": self.student_id})
 		if student_name:
 			frappe.db.set_value("Student", {"student_id": self.student_id}, "maa_code", self.maa_code)
-
 
 	def validate_academic_entry(self):
 		"""Validate duplicate academic entry"""
@@ -71,3 +59,21 @@ class AcademicEntry(Document):
 
 		if academic_entry:
 			frappe.throw(f"Academic Entry already exists for this student {academic_entry[0].name}")
+
+
+	def update_existing_student_maa_code(self):
+		"""Update student maa code for existing student"""
+		existing_maa_code = frappe.get_value("Academic Entry",{"student_id": self.student_id},"maa_code")
+		if existing_maa_code:
+			self.maa_code = existing_maa_code
+		else:
+			self.maa_code = self.generate_new_maa_code()
+			self.db_set("maa_code", self.maa_code)
+
+@frappe.whitelist()
+def update_student_mark_for_existing_student(student_id):
+	"""Update student mark for existing student"""
+	existing_entry = frappe.get_value("Academic Entry",{"student_id": student_id, "docstatus":1},["ssc_result", "hsc_result"])
+	if existing_entry:
+		ssc_result, hsc_result = existing_entry
+	return {"ssc_result": ssc_result, "hsc_result": hsc_result}

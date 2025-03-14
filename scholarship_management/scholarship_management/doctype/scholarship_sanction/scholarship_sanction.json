@@ -26,7 +26,8 @@
   "trust",
   "bank_account",
   "company",
-  "amended_from"
+  "amended_from",
+  "status"
  ],
  "fields": [
   {
@@ -44,7 +45,7 @@
   },
   {
    "fieldname": "annual_educational_expenses",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Annual Educational Expenses",
    "non_negative": 1,
    "reqd": 1
@@ -57,7 +58,7 @@
   },
   {
    "fieldname": "expected_scholarship_amount",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Expected Scholarship Amount",
    "non_negative": 1,
    "reqd": 1
@@ -156,6 +157,7 @@
    "fieldname": "outstanding_amount",
    "fieldtype": "Float",
    "label": "Outstanding Amount",
+   "non_negative": 1,
    "read_only": 1
   },
   {
@@ -173,12 +175,20 @@
    "label": "Student Academic Record",
    "options": "Academic Entry",
    "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Not Paid\nPaid\nPartially Paid",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-12 18:22:30.493232",
+ "modified": "2025-03-14 17:32:36.876560",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship Sanction",
