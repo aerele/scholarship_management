@@ -6,6 +6,7 @@ frappe.ui.form.on("Payment Entry", {
 			return {
 				filters: {
 					"student_record": frm.doc.party,
+					"status": ["!=", "Paid"], 
 					"docstatus": 1
 				}
 			};
