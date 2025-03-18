@@ -6,7 +6,7 @@ frappe.ui.form.on("Academic Entry", {
 				function () {
 					frm.trigger("create_schedule_entry");
 				}, __("Create"))
-		} 
+		}
 	},
 
 	select_student: function(frm) {
@@ -29,6 +29,30 @@ frappe.ui.form.on("Academic Entry", {
 			}
 		});
 	},
+
+	previous_studygroup: function(frm) {
+        if (frm.doc.previous_studygroup) {
+            frm.set_query("previous_studying_course", function() {
+                return {
+                    filters: {
+                        "study_group": frm.doc.previous_studygroup
+                    }
+                };
+            });
+        }
+    },
+
+	present_studygroup: function(frm) {
+        if (frm.doc.present_studygroup) {
+            frm.set_query("present_studyingcourse", function() {
+                return {
+                    filters: {
+                        "study_group": frm.doc.present_studygroup
+                    }
+                };
+            });
+        }
+    },
 
 	create_schedule_entry: function (frm) {
 		frappe.new_doc("Scheduled Entry", {

@@ -1,38 +1,29 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:course",
- "creation": "2025-03-05 09:57:33.957457",
+ "autoname": "field:year_studying",
+ "creation": "2025-03-18 12:34:24.609048",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "study_group",
-  "course"
+  "year_studying"
  ],
  "fields": [
   {
-   "fieldname": "course",
+   "fieldname": "year_studying",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Course",
+   "label": "Year Studying",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "study_group",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "Study Group",
-   "options": "Study Group",
-   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-18 12:02:25.962519",
+ "modified": "2025-03-18 12:37:20.442293",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
- "name": "Course Master",
+ "name": "Year Studying",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

@@ -9,6 +9,7 @@ from frappe.utils import (
 
 class ScheduledEntry(Document):
 	def on_submit(self):
+		self.check_mandatory_fields()
 		self.validate_create_scholarship_sanction()
 		self.validate_sanction_status()
 
@@ -20,7 +21,8 @@ class ScheduledEntry(Document):
 		if self.status == "Accept":
 			doc = frappe.new_doc("Scholarship Sanction")
 			doc.student_record = self.student_record
-			doc.academic_record = self.academic_record
+			doc.student_academic_record = self.student_academic_record
+			doc.status = 'Not Paid'
 			doc.insert()
 			frappe.msgprint("Scholarship Sanction created successfully for student record {}".format(get_link_to_form("Scholarship Sanction", doc.name)))
 
@@ -33,3 +35,15 @@ class ScheduledEntry(Document):
 			frappe.throw(f"Scholarship Sanction already created for student record {existing_scholarship_sanction[0].name}")
 		else:
 			self.create_scholarship_sanction()
+	
+	def check_mandatory_fields(self):
+		if not self.number_of_call_times:
+			frappe.throw("Number of call times is mandatory.")
+		if not self.remarks:
+			frappe.throw("Remarks is mandatory.")
+		if not  self.status:
+			frappe.throw("Status is mandatory.")
+		if not self.call_date:
+			frappe.throw("Call Date is mandatory.")
+		if not self.call_time:
+			frappe.throw("Call Time is mandatory.")

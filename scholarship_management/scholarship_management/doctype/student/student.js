@@ -55,14 +55,14 @@ frappe.ui.form.on("Student", {
 						<p>
 						{{ address.address_line1 }}<br>
 						{% if address.address_line2 %}{{ address.address_line2 }}<br>{% endif %}
-						{{ address.custom_citytown }}, {{ address.custom_stateprovince }} - {{ address.pincode }}<br>
+						{{ address.town_village }}, {{ address.taluka }}, {{ address.custom_district }}, {{ address.custom_state }} - {{ address.pincode }}<br>
 						{{ address.country }}
 						</p>
 						
 						<p>{{ address.display }}</p>
 						
 						<p><strong>{{ __("Phone") }}:</strong> {{ address.phone }}</p>
-						<p><strong>{{ __("Mobile") }}:</strong> {{ address.custom_mobile }}</p>
+						<p><strong>{{ __("Mobile") }}:</strong> {{ address.mobile_no }}</p>
 						<p><strong>{{ __("Email") }}:</strong> {{ address.email_id }}</p>
 						<p><strong>{{ __("Fax") }}:</strong> {{ address.fax }}</p>
 						<p><strong>{{ __("Branch Code") }}:</strong> {{ address.branch_code }}</p>

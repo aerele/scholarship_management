@@ -75,9 +75,9 @@
   },
   {
    "fieldname": "present_yearstudying",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Present Year(Studying)",
-   "options": "\nFirst\nSecond\nThird\nFourth\nFifth",
+   "options": "Year Studying",
    "reqd": 1
   },
   {
@@ -106,6 +106,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "depends_on": "eval: doc.previous_studygroup",
    "fieldname": "previous_studying_course",
    "fieldtype": "Link",
    "label": "Previous Studying (Course)",
@@ -127,6 +128,7 @@
    "reqd": 1
   },
   {
+   "depends_on": "eval: doc.present_studygroup",
    "fieldname": "present_studyingcourse",
    "fieldtype": "Link",
    "label": "Present Studying(Course)",
@@ -293,9 +295,9 @@
   },
   {
    "fieldname": "previous_yearstudying",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Previous Year(Studying)",
-   "options": "\nFirst\nSecond\nThird\nFourth\nFifth",
+   "options": "Year Studying",
    "reqd": 1
   },
   {
@@ -309,7 +311,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-12 11:47:11.926501",
+ "modified": "2025-03-18 15:27:47.548365",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",

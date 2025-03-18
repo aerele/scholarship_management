@@ -57,5 +57,17 @@ frappe.ui.form.on("Schedule Call", {
         } else {
             frappe.msgprint(__("Please select at least one row."));
         }
-	}
+	},
+
+	study_group: function(frm) {
+        if (frm.doc.study_group) {
+            frm.set_query("course", function() {
+                return {
+                    filters: {
+                        "study_group": frm.doc.study_group
+                    }
+                };
+            });
+        }
+    },
 });

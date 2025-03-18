@@ -32,9 +32,12 @@ class ScheduleCall(Document):
 				academic_entry.maa_code,
 				student.student_name,
 				academic_entry.accept,  
-				student.student_id,      
+				student.student_id,
+				academic_entry.name,
 			)
 		)
+
+		query = query.where(academic_entry.docstatus == 1)
 		if student_name_filter:
 			query = query.where(student.student_name == student_name_filter)
 		if interview_place:
@@ -51,7 +54,7 @@ class ScheduleCall(Document):
 		if stream:
 			query = query.where(academic_entry.stream == stream)
 		if course:
-			query = query.where(academic_entry.present_studygroup == course)
+			query = query.where(academic_entry.present_studyingcourse == course)
 		if acceptreject:
 			query = query.where(academic_entry.accept == acceptreject)
 		if type_of_postage:
@@ -67,26 +70,28 @@ class ScheduleCall(Document):
 			query = query.where(academic_entry.application_receive_date <= to_date)
 
 		
-		results = query.run()
-		result_keys = [
-			"maa_code", "student_name", "accept","student_id", "call_letter",
-			 "call_date", "call_time"
-		]
-		
+		results = query.run(as_dict=True)
+		print(results)
+		# result_keys = [
+		# 	"maa_code", "student_name", "accept","student_id","academic_record_name", "call_letter",
+		# 	"call_date", "call_time"
+		# ]
 		self.set("record", [])
 		for row in results:
-			row_dict = dict(zip(result_keys, row))
-			child_row = self.append("record", {})  
-			child_row.maa_code = row_dict.get("maa_code")
-			child_row.name1 = row_dict.get("student_name")
-			child_row.rejected = row_dict.get("accept")
-			child_row.call_letter = row_dict.get("call_letter","")
-			child_row.call_date = row_dict.get("call_date") or ""
-			child_row.call_time = row_dict.get("call_time") or ""
-			student_id = row_dict.get("student_id")
+			# row_dict = dict(zip(result_keys, row))
+			child_row = self.append("record", {})
+			child_row.maa_code = row.get("maa_code")
+			child_row.name1 = row.get("student_name")
+			child_row.rejected = "No" if row.get("accept") == "Yes" else "Yes"
+			child_row.call_letter = row.get("call_letter", "")
+			child_row.call_date = row.get("call_date", "")
+			child_row.call_time = row.get("call_time", "")
+			child_row.academic_record = row.get("name", "")
+
+			student_id = row.get("student_id")
 			address_dict = get_student_address(student_id)
 			child_row.address = address_dict.get("address", "")
-			child_row.phone_no = address_dict.get("phone","")
+			child_row.phone_no = address_dict.get("phone", "")
 		
 		self.save()
 	
@@ -127,10 +132,10 @@ def get_student_address(student_id):
 				return {
 					"address": address_doc.address_line1,
 					"city": address_doc.city,
-					"phone": address_doc.phone or address_doc.custom_mobile,
+					"phone": address_doc.phone or address_doc.mobile_no,
 				}
 
 	return {}  
 
 	
-	
+# def get_call_time_date():

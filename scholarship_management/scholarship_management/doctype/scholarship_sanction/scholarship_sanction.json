@@ -39,7 +39,7 @@
   },
   {
    "fieldname": "annual_house_hold_income",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Annual House Hold Income",
    "non_negative": 1
   },
@@ -47,12 +47,11 @@
    "fieldname": "annual_educational_expenses",
    "fieldtype": "Float",
    "label": "Annual Educational Expenses",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "affordability_of_educational_expenses",
-   "fieldtype": "Int",
+   "fieldtype": "Float",
    "label": "Affordability Of Educational Expenses",
    "non_negative": 1
   },
@@ -60,8 +59,7 @@
    "fieldname": "expected_scholarship_amount",
    "fieldtype": "Float",
    "label": "Expected Scholarship Amount",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "travelling_expense",
@@ -78,8 +76,7 @@
   {
    "fieldname": "scholarship_sanctioned_date",
    "fieldtype": "Date",
-   "label": "Scholarship Sanctioned Date",
-   "reqd": 1
+   "label": "Scholarship Sanctioned Date"
   },
   {
    "fetch_from": "student_record.photo",
@@ -95,10 +92,9 @@
   },
   {
    "fieldname": "trust",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "label": "Trust",
-   "options": "\nMaa",
-   "reqd": 1
+   "options": "Trust"
   },
   {
    "fieldname": "column_break_hscj",
@@ -136,22 +132,19 @@
    "fieldname": "mode_of_payment",
    "fieldtype": "Select",
    "label": "Mode Of Payment",
-   "options": "\nWire Transfer\nCheque",
-   "reqd": 1
+   "options": "\nWire Transfer\nCheque"
   },
   {
    "fieldname": "bank_account",
    "fieldtype": "Link",
    "label": "Bank Account",
-   "options": "Bank Account",
-   "reqd": 1
+   "options": "Bank Account"
   },
   {
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company",
-   "reqd": 1
+   "options": "Company"
   },
   {
    "fieldname": "outstanding_amount",
@@ -165,8 +158,7 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Amount Sanctioned",
-   "non_negative": 1,
-   "reqd": 1
+   "non_negative": 1
   },
   {
    "fieldname": "student_academic_record",
@@ -188,7 +180,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-14 17:32:36.876560",
+ "modified": "2025-03-18 17:09:03.944744",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship Sanction",
