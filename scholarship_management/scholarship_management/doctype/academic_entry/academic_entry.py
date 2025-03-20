@@ -4,7 +4,7 @@ from frappe.model.document import Document
 class AcademicEntry(Document):
 	def before_save(self):
 		self.validate_academic_entry()
-		self.update_student_maa_code()
+		self.fetch_existing_maa_code()
 		self.update_student_information()
 
 	def on_submit(self):
@@ -59,13 +59,19 @@ class AcademicEntry(Document):
 		if academic_entry:
 			frappe.throw(f"Academic Entry already exists for this student {academic_entry[0].name}")
 
-	def update_student_maa_code(self):
-		"""Update student MAA code: Keep existing code, generate only if missing"""
-		existing_maa_code = frappe.get_value("Academic Entry", {"student_id": self.student_id, "docstatus": 1}, "maa_code")
+	def fetch_existing_maa_code(self):
+		"""Fetch MAA code for an existing student"""
+		existing_maa_code = frappe.get_value(
+			"Academic Entry", 
+			{"student_id": self.student_id, "docstatus": 1}, 
+			"maa_code"
+		)
 		if existing_maa_code:
 			self.db_set("maa_code", existing_maa_code)
-		else:
-			# Generate a new maa_code only for new students
+			
+	def update_student_maa_code(self):
+		"""Update student MAA code: Keep existing, generate new only if missing"""
+		if not self.maa_code:  # Generate a new maa_code only if missing
 			self.maa_code = self.generate_new_maa_code()
 			self.db_set("maa_code", self.maa_code)
 

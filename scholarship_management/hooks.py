@@ -87,6 +87,7 @@ doctype_js = {"Payment Entry" : "public/js/payment_entry.js"}
 
 # before_install = "scholarship_management.install.before_install"
 after_install = "scholarship_management.install.after_install"
+# after_migrate = "scholarship_management.install.setup_scholarship_roles"
 # Uninstallation
 # ------------
 

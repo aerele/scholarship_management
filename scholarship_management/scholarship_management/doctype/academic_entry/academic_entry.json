@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:AE - {student_id} - {###}",
+ "autoname": "AE-.######",
  "creation": "2025-03-05 09:34:52.502424",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -40,11 +40,10 @@
   "schoolcollege",
   "amended_from",
   "section_break_qgvr",
-  "accept",
-  "reason_for_rejection",
-  "column_break_awzh",
   "type_of_postage",
-  "academic_remarks"
+  "column_break_awzh",
+  "academic_remarks",
+  "connections_tab"
  ],
  "fields": [
   {
@@ -244,22 +243,8 @@
   },
   {
    "fieldname": "section_break_qgvr",
-   "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "accept",
-   "fieldtype": "Select",
-   "label": "Accept",
-   "options": "\nYes\nNo",
-   "reqd": 1
-  },
-  {
-   "depends_on": "eval:doc.accept === \"No\"",
-   "fieldname": "reason_for_rejection",
-   "fieldtype": "Link",
-   "label": "Reason for Rejection",
-   "mandatory_depends_on": "eval:doc.accept === \"No\"",
-   "options": "Reason for Rejection"
+   "fieldtype": "Section Break",
+   "label": "Additional Information"
   },
   {
    "fieldname": "column_break_awzh",
@@ -269,8 +254,7 @@
    "fieldname": "type_of_postage",
    "fieldtype": "Link",
    "label": "Type of Postage",
-   "options": "Type of Postage Master",
-   "reqd": 1
+   "options": "Type of Postage Master"
   },
   {
    "fieldname": "select_student",
@@ -290,8 +274,7 @@
   {
    "fieldname": "academic_remarks",
    "fieldtype": "Data",
-   "label": "Remarks",
-   "reqd": 1
+   "label": "Remarks"
   },
   {
    "fieldname": "previous_yearstudying",
@@ -306,16 +289,31 @@
    "fieldtype": "Link",
    "label": "Interview Place",
    "options": "Town Village"
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-03-18 15:27:47.548365",
+ "links": [
+  {
+   "link_doctype": "Scheduled Entry",
+   "link_fieldname": "student_academic_record"
+  },
+  {
+   "link_doctype": "Scholarship Sanction",
+   "link_fieldname": "student_academic_record"
+  }
+ ],
+ "modified": "2025-03-19 19:09:03.330532",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

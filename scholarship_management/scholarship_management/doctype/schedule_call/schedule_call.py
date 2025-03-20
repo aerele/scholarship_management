@@ -71,14 +71,8 @@ class ScheduleCall(Document):
 
 		
 		results = query.run(as_dict=True)
-		print(results)
-		# result_keys = [
-		# 	"maa_code", "student_name", "accept","student_id","academic_record_name", "call_letter",
-		# 	"call_date", "call_time"
-		# ]
 		self.set("record", [])
 		for row in results:
-			# row_dict = dict(zip(result_keys, row))
 			child_row = self.append("record", {})
 			child_row.maa_code = row.get("maa_code")
 			child_row.name1 = row.get("student_name")
@@ -118,7 +112,6 @@ class ScheduleCall(Document):
 				"student_academic_record": latest_academic_entry[0].get('name'),
 				"call_date": call_date,
 				"call_time": call_time,
-				"status": None
 			})
 			scheduled_entry.insert() 
 		return scheduled_entry.name
@@ -136,6 +129,3 @@ def get_student_address(student_id):
 				}
 
 	return {}  
-
-	
-# def get_call_time_date():

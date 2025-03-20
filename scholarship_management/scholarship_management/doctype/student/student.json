@@ -22,7 +22,8 @@
   "section_break_udcx",
   "remark",
   "address_tab",
-  "address_html"
+  "address_html",
+  "connections_tab"
  ],
  "fields": [
   {
@@ -137,12 +138,39 @@
    "fieldname": "address_html",
    "fieldtype": "HTML",
    "label": "Address HTML"
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
   }
  ],
  "image_field": "photo",
  "index_web_pages_for_search": 1,
- "links": [],
- "modified": "2025-03-12 16:40:07.721850",
+ "links": [
+  {
+   "link_doctype": "Academic Entry",
+   "link_fieldname": "select_student"
+  },
+  {
+   "link_doctype": "Scheduled Entry",
+   "link_fieldname": "student_record"
+  },
+  {
+   "link_doctype": "Scholarship Sanction",
+   "link_fieldname": "student_record"
+  },
+  {
+   "link_doctype": "Payment Entry",
+   "link_fieldname": "party"
+  },
+  {
+   "link_doctype": "Address",
+   "link_fieldname": "link_name"
+  }
+ ],
+ "modified": "2025-03-19 16:04:24.154423",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Student",

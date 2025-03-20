@@ -11,18 +11,14 @@ class ScheduledEntry(Document):
 	def on_submit(self):
 		self.check_mandatory_fields()
 		self.validate_create_scholarship_sanction()
-		self.validate_sanction_status()
-
-	def validate_sanction_status(self):
-		if self.status not in ["Accept","Reject"]:
-			frappe.throw("Status should be either Accept or Reject")
 			
 	def create_scholarship_sanction(self):
-		if self.status == "Accept":
+		if self.workflow_state == "Approved":
 			doc = frappe.new_doc("Scholarship Sanction")
 			doc.student_record = self.student_record
 			doc.student_academic_record = self.student_academic_record
 			doc.status = 'Not Paid'
+			doc.scheduled_entry = self.name
 			doc.insert()
 			frappe.msgprint("Scholarship Sanction created successfully for student record {}".format(get_link_to_form("Scholarship Sanction", doc.name)))
 
@@ -41,8 +37,6 @@ class ScheduledEntry(Document):
 			frappe.throw("Number of call times is mandatory.")
 		if not self.remarks:
 			frappe.throw("Remarks is mandatory.")
-		if not  self.status:
-			frappe.throw("Status is mandatory.")
 		if not self.call_date:
 			frappe.throw("Call Date is mandatory.")
 		if not self.call_time:

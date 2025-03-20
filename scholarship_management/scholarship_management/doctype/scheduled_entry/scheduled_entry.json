@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:SE-{maa_code}-{##}",
+ "autoname": "SE-.######",
  "creation": "2025-03-05 10:11:39.924593",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -23,14 +23,15 @@
   "previous_yearstudying",
   "present_yearstudying",
   "call_date",
-  "status",
-  "amended_from"
+  "amended_from",
+  "connections_tab"
  ],
  "fields": [
   {
    "fetch_from": "student_academic_record.student_name",
    "fieldname": "name1",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Name",
    "reqd": 1
   },
@@ -130,6 +131,7 @@
    "fetch_from": "student_academic_record.maa_code",
    "fieldname": "maa_code",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Maa Code",
    "reqd": 1
   },
@@ -143,6 +145,7 @@
    "fetch_from": "student_academic_record.select_student",
    "fieldname": "student_record",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Student Record",
    "options": "Student",
    "reqd": 1
@@ -158,28 +161,33 @@
    "search_index": 1
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "\nAccept\nReject"
-  },
-  {
    "fieldname": "student_academic_record",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Student Academic Record",
    "options": "Academic Entry",
    "reqd": 1
+  },
+  {
+   "fieldname": "connections_tab",
+   "fieldtype": "Tab Break",
+   "label": "Connections",
+   "show_dashboard": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2025-03-18 17:01:35.608537",
+ "links": [
+  {
+   "link_doctype": "Scholarship Sanction",
+   "link_fieldname": "scheduled_entry"
+  }
+ ],
+ "modified": "2025-03-19 17:34:31.476625",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scheduled Entry",
- "naming_rule": "Expression",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {

@@ -13,6 +13,27 @@ frappe.ui.form.on("Scholarship Sanction", {
 				return {};
 			}
 		});
+
+		frm.set_query('scheduled_entry',function(){
+            return{
+                filters:{
+                    "student_academic_record":frm.doc.student_academic_record,
+                    "student_record":frm.doc.student_record,
+                    "workflow_state": "Approved"
+                }
+            };
+
+        });
+
+		frm.set_query('bank_account',function(){
+            return{
+                filters:{
+					"account_name":frm.doc.student_record
+                }
+            };
+
+        });
+
 	},
 	validate: function (frm) {
 		// Update outstanding amount before saving

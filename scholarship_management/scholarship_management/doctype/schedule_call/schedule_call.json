@@ -48,8 +48,9 @@
   },
   {
    "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Student Name"
+   "fieldtype": "Link",
+   "label": "Student Name",
+   "options": "Student"
   },
   {
    "fieldname": "study_group",
@@ -122,7 +123,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-03-18 16:20:13.047575",
+ "modified": "2025-03-19 16:56:49.684293",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Schedule Call",
