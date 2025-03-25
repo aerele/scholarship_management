@@ -85,8 +85,6 @@ def create_workflow():
                     "doctype": "Workflow State",
                     "workflow_state_name": state,
                     "style": "Success"
-                    if state == "Transaction Completed"
-                    else "Danger",
                 }
             )
             workflow_state.insert()
