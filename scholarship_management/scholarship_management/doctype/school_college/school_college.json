@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:schoolcollege",
  "creation": "2025-03-05 12:38:31.336863",
@@ -18,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-05 12:40:21.216697",
+ "modified": "2025-04-01 12:37:22.250673",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "School College",

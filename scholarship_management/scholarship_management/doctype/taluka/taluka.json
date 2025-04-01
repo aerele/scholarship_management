@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:taluka",
  "creation": "2025-03-06 14:08:11.413796",
@@ -18,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-06 16:07:34.851368",
+ "modified": "2025-04-01 12:38:12.497123",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Taluka",

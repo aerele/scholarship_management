@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:type_of_postage",
  "creation": "2025-03-06 13:44:09.283469",
@@ -19,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-06 16:03:41.030335",
+ "modified": "2025-04-01 12:37:31.429917",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Type of Postage Master",

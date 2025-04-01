@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:year_studying",
  "creation": "2025-03-18 12:34:24.609048",
@@ -20,7 +21,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-18 12:37:20.442293",
+ "modified": "2025-04-01 12:38:34.342327",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Year Studying",
