@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "autoname": "field:student_id",
  "creation": "2025-03-03 18:10:59.877796",
  "doctype": "DocType",
@@ -170,7 +171,7 @@
    "link_fieldname": "link_name"
   }
  ],
- "modified": "2025-03-19 16:04:24.154423",
+ "modified": "2025-04-01 12:22:54.819253",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Student",

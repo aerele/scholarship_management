@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:academic_year",
  "creation": "2025-03-05 09:30:56.451327",
@@ -18,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-05 12:31:43.946268",
+ "modified": "2025-04-01 12:37:02.281673",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Year",

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:study_group",
  "creation": "2025-03-06 13:58:45.254823",
@@ -18,7 +19,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-06 16:04:56.070005",
+ "modified": "2025-04-01 12:37:48.671560",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Study Group",

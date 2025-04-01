@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "SE-.######",
  "creation": "2025-03-05 10:11:39.924593",
@@ -183,7 +184,7 @@
    "link_fieldname": "scheduled_entry"
   }
  ],
- "modified": "2025-03-19 17:34:31.476625",
+ "modified": "2025-04-01 12:30:31.284032",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scheduled Entry",

@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:course",
  "creation": "2025-03-05 09:57:33.957457",
@@ -29,7 +30,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-18 12:02:25.962519",
+ "modified": "2025-04-01 12:38:26.740171",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Course Master",

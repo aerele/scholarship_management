@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "field:reason_for_rejection",
  "creation": "2025-03-06 13:45:10.882995",
@@ -19,7 +20,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-03-06 16:07:06.178987",
+ "modified": "2025-04-01 12:37:55.854074",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Reason for Rejection",

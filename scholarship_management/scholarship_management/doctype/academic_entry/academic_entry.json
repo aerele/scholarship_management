@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "AE-.######",
  "creation": "2025-03-05 09:34:52.502424",
@@ -309,7 +310,7 @@
    "link_fieldname": "student_academic_record"
   }
  ],
- "modified": "2025-03-19 19:09:03.330532",
+ "modified": "2025-04-01 12:38:54.972826",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",
