@@ -203,7 +203,7 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2025-03-19 20:03:33.964985",
+ "modified": "2025-04-07 12:15:47.838381",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship Sanction",
@@ -220,6 +220,19 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Scholarship Manager",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

@@ -310,7 +310,7 @@
    "link_fieldname": "student_academic_record"
   }
  ],
- "modified": "2025-04-01 12:38:54.972826",
+ "modified": "2025-04-07 12:16:34.673466",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",
@@ -328,6 +328,28 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Scholarship Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Scholarship User",
+   "share": 1
   }
  ],
  "sort_field": "modified",
