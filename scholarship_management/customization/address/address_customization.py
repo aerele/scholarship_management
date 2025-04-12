@@ -40,9 +40,10 @@ def customize_address_doctype():
 	create_custom_field("Address", {
 		"fieldname": "custom_district",
 		"label": "District",
-		"fieldtype": "Link",
-		"options": "District",
-		"insert_after": "town_village"
+		"fieldtype": "Data",
+		"read_only": 1,
+		"insert_after": "town_village",
+		"fetch_from": "town_village.district"
 	})
 
 	make_property_setter("Address", "custom_district", "reqd", 1, "Check")
@@ -77,9 +78,10 @@ def customize_address_doctype():
 	create_custom_field("Address", {
 		"fieldname": "taluka",
 		"label": "Taluka",
-		"fieldtype": "Link",
-		"options": "Taluka",
-		"insert_after": "town_village"
+		"fieldtype": "Data",
+		"read_only": 1,
+		"insert_after": "town_village",
+		"fetch_from": "town_village.taluka"
 	})
 
 	make_property_setter("Address", "taluka", "reqd", 1, "Check")

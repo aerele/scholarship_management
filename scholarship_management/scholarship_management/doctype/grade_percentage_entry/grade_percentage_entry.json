@@ -1,35 +1,38 @@
 {
  "actions": [],
- "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:taluka",
- "creation": "2025-03-06 14:08:11.413796",
+ "autoname": "field:percentage",
+ "creation": "2025-04-12 14:31:37.906668",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "district",
-  "taluka"
+  "grade",
+  "percentage"
  ],
  "fields": [
   {
-   "fieldname": "taluka",
-   "fieldtype": "Data",
-   "label": "Taluka",
-   "unique": 1
+   "fieldname": "grade",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Grade",
+   "options": "Grade Master",
+   "reqd": 1
   },
   {
-   "fieldname": "district",
-   "fieldtype": "Link",
-   "label": "District",
-   "options": "District"
+   "fieldname": "percentage",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Percentage",
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-12 11:51:01.411440",
+ "modified": "2025-04-12 14:34:32.433864",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
- "name": "Taluka",
+ "name": "Grade Percentage Entry",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

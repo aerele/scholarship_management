@@ -7,6 +7,8 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "taluka",
+  "district",
   "townvillage"
  ],
  "fields": [
@@ -15,11 +17,24 @@
    "fieldtype": "Data",
    "label": "Town/Village",
    "unique": 1
+  },
+  {
+   "fieldname": "taluka",
+   "fieldtype": "Link",
+   "label": "Taluka",
+   "options": "Taluka"
+  },
+  {
+   "fetch_from": "taluka.district",
+   "fieldname": "district",
+   "fieldtype": "Data",
+   "label": "District",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-07 12:13:13.673234",
+ "modified": "2025-04-12 12:05:54.029949",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Town Village",
