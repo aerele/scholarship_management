@@ -9,6 +9,7 @@
  "field_order": [
   "taluka",
   "district",
+  "state",
   "townvillage"
  ],
  "fields": [
@@ -16,13 +17,16 @@
    "fieldname": "townvillage",
    "fieldtype": "Data",
    "label": "Town/Village",
+   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "taluka",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Taluka",
-   "options": "Taluka"
+   "options": "Taluka",
+   "reqd": 1
   },
   {
    "fetch_from": "taluka.district",
@@ -30,11 +34,18 @@
    "fieldtype": "Data",
    "label": "District",
    "read_only": 1
+  },
+  {
+   "fetch_from": "taluka.state",
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-12 12:05:54.029949",
+ "modified": "2025-04-15 11:03:43.831203",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Town Village",

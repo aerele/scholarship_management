@@ -29,7 +29,9 @@ class AcademicEntry(Document):
 			last_number = 0  
 
 		new_number = last_number + 1
-		return f"MFVA{new_number:05d}"
+		num_length = len(str(last_number))
+
+		return f"MFVA{new_number:0{num_length}d}"
 
 	def update_new_student_maa_code(self):
 		"""Update student maa code only new student"""
