@@ -70,7 +70,9 @@ def customize_address_doctype():
 		"label": "State",
 		"fieldtype": "Select",
 		"options": state_options,
-		"insert_after": "custom_district"
+		"read_only": 1,
+		"insert_after": "custom_district",
+		"fetch_from": "town_village.state"
 	})
 	
 	make_property_setter("Address", "custom_state", "reqd", 1, "Check")
