@@ -1,0 +1,67 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"2FVJTTzBsA\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Payments</span>\",\"col\":12}},{\"id\":\"UE9DKD1J_h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheduled Entry\",\"col\":3}},{\"id\":\"IJgPpI9KtA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scholarship Sanction\",\"col\":3}},{\"id\":\"Z-kIPR7ORP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"gbeG20AXpt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1BcIuHAmAg\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xn4TOApmAc\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Scheduled Entry &amp; Call Process</span>\",\"col\":12}},{\"id\":\"alj0kIPCE4\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Scheduled Entry\",\"col\":4}},{\"id\":\"qDnNWYZwHi\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Schedule Call\",\"col\":3}},{\"id\":\"LOE9-ddfLP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Jd1NbFMlQo\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "creation": "2025-04-15 17:15:18.852770",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "money-coins-1",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Payments",
+ "links": [],
+ "modified": "2025-04-15 18:28:30.589540",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Payments",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Scholarship",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Scheduled Entry",
+   "label": "Scheduled Entry",
+   "quick_list_filter": "[]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 3.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Scheduled Entry",
+   "link_to": "Scheduled Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Scholarship Sanction",
+   "link_to": "Scholarship Sanction",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Schedule Call",
+   "link_to": "Schedule Call",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Payment Entry",
+   "link_to": "Payment Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Payments"
+}

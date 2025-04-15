@@ -1,0 +1,158 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"OHQCd0YhXQ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Profile Entry</span>\",\"col\":12}},{\"id\":\"8LUBy8HTvw\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Student\",\"col\":3}},{\"id\":\"kiJJwV_dD_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Academic Entry\",\"col\":3}},{\"id\":\"B3dWRml3i5\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"f99rYeUV2V\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"os5SPkHg6p\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"14cx_w7m9i\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Shortcuts</span>\",\"col\":12}},{\"id\":\"_ZKs9o4l55\",\"type\":\"paragraph\",\"data\":{\"text\":\"Place Shortcuts\",\"col\":12}},{\"id\":\"tOJtljv3Jx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Taluka\",\"col\":3}},{\"id\":\"uQAdAzeUbD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"District\",\"col\":3}},{\"id\":\"BCtA0VucoP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Town/Village\",\"col\":3}},{\"id\":\"r9GbmG5uCx\",\"type\":\"paragraph\",\"data\":{\"text\":\"Academic Entry Shortcuts\",\"col\":12}},{\"id\":\"ulNdWDu4lQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Academic Year\",\"col\":3}},{\"id\":\"b73CJC7tQk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Year Studying\",\"col\":3}},{\"id\":\"9I70MUY0VM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"School/College\",\"col\":3}},{\"id\":\"5bcu7Z8sFq\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Study Group\",\"col\":3}},{\"id\":\"vEw5grzhnS\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Course Master\",\"col\":3}},{\"id\":\"lA4Zq139L5\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Grade Master\",\"col\":3}},{\"id\":\"kEOfKordH_\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Grade Percentage Entry\",\"col\":3}},{\"id\":\"9E4_aF8jAy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Stream\",\"col\":3}},{\"id\":\"uDb9fzHJTn\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Present Medium\",\"col\":3}},{\"id\":\"MKQLtSCXt9\",\"type\":\"paragraph\",\"data\":{\"text\":\"Others\",\"col\":12}},{\"id\":\"QZdPgoxtdf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Trust\",\"col\":3}},{\"id\":\"ihahZr5H1O\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Type of Postage Master\",\"col\":3}}]",
+ "creation": "2025-04-15 17:19:53.734796",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "edit-fill",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Profile Entry",
+ "links": [],
+ "modified": "2025-04-15 18:28:19.377264",
+ "modified_by": "Administrator",
+ "module": "Scholarship Management",
+ "name": "Profile Entry",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "Scholarship",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 2.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Trust",
+   "link_to": "Trust",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Type of Postage Master",
+   "link_to": "Type of Postage Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Course Master",
+   "link_to": "Course Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Grade Master",
+   "link_to": "Grade Master",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Student",
+   "link_to": "Student",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Taluka",
+   "link_to": "Taluka",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Stream",
+   "link_to": "Stream",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Grade Percentage Entry",
+   "link_to": "Grade Percentage Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Academic Entry",
+   "link_to": "Academic Entry",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "District",
+   "link_to": "District",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Present Medium",
+   "link_to": "Present Medium",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Town/Village",
+   "link_to": "Town Village",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Academic Year",
+   "link_to": "Academic Year",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Year Studying",
+   "link_to": "Year Studying",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "School/College",
+   "link_to": "School College",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Study Group",
+   "link_to": "Study Group",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "Profile Entry"
+}
