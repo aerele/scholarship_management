@@ -9,12 +9,13 @@ def execute(filters=None):
 	to_date = getdate(filters.to_date) if filters.to_date else None
 	category = filters.category if filters.category else None
 	maa_code = filters.maa_code if filters.maa_code else None
+	mode_of_payment = filters.mode_of_payment if filters.mode_of_payment else None
 
 	# Define report columns
 	columns = get_report_columns()
 
 	# Fetch filtered data
-	data = get_filtered_payment_data(from_date, to_date, category, maa_code)
+	data = get_filtered_payment_data(from_date, to_date, category, maa_code, mode_of_payment)
 
 	return columns, data
 
@@ -49,19 +50,20 @@ def get_report_columns():
 	]
 
 
-def get_filtered_payment_data(from_date, to_date, category, maa_code):
+def get_filtered_payment_data(from_date, to_date, category, maa_code, mode_of_payment):
 	data = []
 
 	# Get all Payment Entry references linked to Scholarship Sanction
-	payment_refs = frappe.get_all(
-		"Payment Entry Reference",
-		filters={"reference_doctype": "Scholarship Sanction"},
-		fields=["parent", "reference_name", "allocated_amount"]
+	payment_refs = frappe.get_list(
+		"Payment Entry",
+		filters={"party_type": "Student", "docstatus":1},
+		fields=["name"]
 	)
 
 	for ref in payment_refs:
-		payment_entry = frappe.get_doc("Payment Entry", ref.parent)
+		payment_entry = frappe.get_doc("Payment Entry", ref.name)
 		student = frappe.get_doc("Student", payment_entry.party)
+		
 		address = frappe.get_list("Address",
 						filters={
 							"link_doctype": "Student",
@@ -82,16 +84,22 @@ def get_filtered_payment_data(from_date, to_date, category, maa_code):
 			continue
 		if maa_code and student.maa_code != maa_code:
 			continue
+		if mode_of_payment and payment_entry.mode_of_payment != mode_of_payment:
+			continue
+
+		scholarship_sanction = payment_entry.references[0].reference_name if payment_entry.references else None
+
 		
 		data.append({
 			"maa_code": student.maa_code,
 			"student_name": student.student_name,
-			"allocated_amount": ref.allocated_amount,
+			"allocated_amount": payment_entry.paid_amount,
 			"posting_date": payment_entry.posting_date,
-			"scholarship_sanction": ref.reference_name,
-			"payment_entry": ref.parent,
+			"scholarship_sanction": scholarship_sanction,
+			"payment_entry": payment_entry.name,
 			"category": student.category,
-			"town_village": address[0].town_village
+			"town_village": address[0].town_village,
+			"mode_of_payment": payment_entry.mode_of_payment,
 		})
 
 	return data
@@ -102,7 +110,7 @@ def get_maa_codes():
     maa_codes = frappe.get_all(
         "Student",
         filters={"maa_code": ["like", "MFVA%"]},
-        fields=["maa_code"],
+        fields=["maa_code", "name"],
         distinct=True
     )
     return {"maa_codes": maa_codes}

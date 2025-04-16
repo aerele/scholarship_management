@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"MXd50Tq2oJ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"fcmtpOrON4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry Report\",\"col\":3}},{\"id\":\"vUmfkARLxZ\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "content": "[{\"id\":\"MXd50Tq2oJ\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Reports</span>\",\"col\":12}},{\"id\":\"fcmtpOrON4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry Report\",\"col\":3}},{\"id\":\"Rz8iIwKJEd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Academic Report\",\"col\":3}},{\"id\":\"fhLtHdTFDJ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Call Process\",\"col\":3}},{\"id\":\"osdK1Rff0q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sanctioned Amount\",\"col\":3}},{\"id\":\"vUmfkARLxZ\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
  "creation": "2025-04-15 17:43:51.951324",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Reports",
  "links": [],
- "modified": "2025-04-15 18:28:23.811431",
+ "modified": "2025-04-16 14:51:20.224797",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Reports",
@@ -28,8 +28,29 @@
   {
    "color": "Grey",
    "doc_view": "List",
+   "label": "Academic Report",
+   "link_to": "Academic",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Call Process",
+   "link_to": "Call Process",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
    "label": "Payment Entry Report",
    "link_to": "Payment Entry Report",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Sanctioned Amount",
+   "link_to": "Sanctioned Amount",
    "type": "Report"
   }
  ],

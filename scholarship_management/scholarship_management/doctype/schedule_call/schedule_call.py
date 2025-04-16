@@ -31,7 +31,7 @@ class ScheduleCall(Document):
 			.select(
 				academic_entry.maa_code,
 				student.student_name,
-				academic_entry.accept,  
+				# academic_entry.rejected,  
 				student.student_id,
 				academic_entry.name,
 			)
@@ -39,7 +39,7 @@ class ScheduleCall(Document):
 
 		query = query.where(academic_entry.docstatus == 1)
 		if student_name_filter:
-			query = query.where(student.student_name == student_name_filter)
+			query = query.where(student.name == student_name_filter)
 		if interview_place:
 			query = query.where(student.interview_place == interview_place)
 		if widow:
@@ -55,8 +55,8 @@ class ScheduleCall(Document):
 			query = query.where(academic_entry.stream == stream)
 		if course:
 			query = query.where(academic_entry.present_studyingcourse == course)
-		if acceptreject:
-			query = query.where(academic_entry.accept == acceptreject)
+		# if acceptreject:
+		# 	query = query.where(academic_entry.accept == acceptreject)
 		if type_of_postage:
 			query = query.where(academic_entry.type_of_postage == type_of_postage)
 		if repeat:
