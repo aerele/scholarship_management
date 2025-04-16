@@ -14,20 +14,13 @@ frappe.query_reports["Payment Entry Report"] = {
 			"mandatory": 0,
 			"wildcard_filter": 0
 		},
-		// {
-		// 	"fieldname": "maa_code",
-		// 	"fieldtype": "Select", 
-		// 	"label": "Maa Code",
-		// 	"mandatory": 0,
-		// 	"wildcard_filter": 0,
-		// 	"options": []
-		// },
 		{
 			"fieldname": "maa_code",
-			"fieldtype": "Data", 
+			"fieldtype": "Select",
 			"label": "Maa Code",
 			"mandatory": 0,
 			"wildcard_filter": 0,
+			"options": []
 		},
 		{
 			"fieldname": "category",
@@ -52,31 +45,39 @@ frappe.query_reports["Payment Entry Report"] = {
 				"Others"
 			].join('\n'),
 			"mandatory": 0
+		},
+		{
+			"fieldname": "mode_of_payment",
+			"fieldtype": "Select",
+			"label": "Mode of Payment",
+			"options": [
+				"",
+				"Cheque",
+				"Wire Transfer"
+			].join('\n'),
+			"mandatory": 0
 		}
 	],
-	// "onload": function (report) {
-	// 	frappe.call({
-	// 		method: "scholarship_management.scholarship_management.report.payment_entry_report.payment_entry_report.get_maa_codes",  // Correct path to the Python function
-	// 		callback: function (r) {
-	// 			if (r.message) {
-	// 				// Ensure valid response and that we have maa_codes
-	// 				if (r.message.maa_codes) {
-	// 					// Extracting MAA codes from the response
-	// 					var maa_codes = r.message.maa_codes.map(function (item) {
-	// 						return item.maa_code;
-	// 					});
+	"onload": function (report) {
+		frappe.call({
+			method: "scholarship_management.scholarship_management.report.payment_entry_report.payment_entry_report.get_maa_codes",
+			callback: function (r) {
+				if (r.message && r.message.maa_codes) {
 
-	// 					// Populate the options field for 'maa_code'
-	// 					var maa_code_filter = report.filters.find(f => f.fieldname === 'maa_code');
-	// 					if (maa_code_filter) {
-	// 						// Joining the maa_codes with newline
-	// 						maa_code_filter.options = maa_codes.join('\n');
-	// 						// Refresh the field to reflect the changes
-	// 						report.refresh_field('maa_code');
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	});
-	// }
+					console.log(r.message.maa_codes)
+					const maa_codes = r.message.maa_codes.map(item => item.maa_code);
+					for (let i = 0; i < maa_codes.length; i++) {
+						console.log(maa_codes[i]);
+					}
+
+					let maa_code_filter = report.get_filter("maa_code");
+					if (maa_code_filter) {
+						maa_code_filter.df.options = ["", ...maa_codes].join('\n');
+						maa_code_filter.refresh();
+					}
+
+				}
+			}
+		});
+	}
 };
