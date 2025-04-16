@@ -28,7 +28,7 @@ frappe.ui.form.on("Scholarship Sanction", {
 		frm.set_query('bank_account',function(){
             return{
                 filters:{
-					"account_name":frm.doc.student_record
+					"party":frm.doc.student_record
                 }
             };
 

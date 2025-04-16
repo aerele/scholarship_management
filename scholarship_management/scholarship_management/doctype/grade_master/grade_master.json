@@ -1,48 +1,29 @@
 {
  "actions": [],
- "allow_import": 1,
  "allow_rename": 1,
- "autoname": "field:taluka",
- "creation": "2025-03-06 14:08:11.413796",
+ "autoname": "field:grade",
+ "creation": "2025-04-12 14:29:39.098556",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "district",
-  "state",
-  "taluka"
+  "grade"
  ],
  "fields": [
   {
-   "fieldname": "taluka",
+   "fieldname": "grade",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Taluka",
+   "label": "Grade",
    "reqd": 1,
    "unique": 1
-  },
-  {
-   "fieldname": "district",
-   "fieldtype": "Link",
-   "in_list_view": 1,
-   "label": "District",
-   "options": "District",
-   "reqd": 1
-  },
-  {
-   "fetch_from": "district.state",
-   "fieldname": "state",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "State",
-   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-04-15 10:53:55.019587",
+ "modified": "2025-04-12 14:34:25.100165",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
- "name": "Taluka",
+ "name": "Grade Master",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

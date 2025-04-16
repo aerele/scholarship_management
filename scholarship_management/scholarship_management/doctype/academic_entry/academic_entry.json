@@ -22,6 +22,7 @@
   "interview_place",
   "academic_information_section",
   "previous_studygroup",
+  "previous_studying_course",
   "previous_academic_year",
   "previous_yearstudying",
   "present_academic_year",
@@ -31,7 +32,6 @@
   "application_receive_date",
   "column_break_lvcl",
   "maa_code",
-  "previous_studying_course",
   "percentage_application_done",
   "present_studygroup",
   "present_studyingcourse",
@@ -185,8 +185,7 @@
    "fieldname": "maa_code",
    "fieldtype": "Data",
    "label": "MAA Code",
-   "no_copy": 1,
-   "read_only": 1
+   "no_copy": 1
   },
   {
    "fetch_from": "select_student.student_name",
@@ -310,7 +309,7 @@
    "link_fieldname": "student_academic_record"
   }
  ],
- "modified": "2025-04-07 12:16:34.673466",
+ "modified": "2025-04-12 13:49:09.656663",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",
