@@ -64,11 +64,7 @@ frappe.query_reports["Payment Entry Report"] = {
 			callback: function (r) {
 				if (r.message && r.message.maa_codes) {
 
-					console.log(r.message.maa_codes)
 					const maa_codes = r.message.maa_codes.map(item => item.maa_code);
-					for (let i = 0; i < maa_codes.length; i++) {
-						console.log(maa_codes[i]);
-					}
 
 					let maa_code_filter = report.get_filter("maa_code");
 					if (maa_code_filter) {
