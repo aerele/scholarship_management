@@ -1,13 +1,8 @@
 {
  "charts": [],
- "content": "[{\"id\":\"9xoqDlWWOp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Scholarship</span>\",\"col\":12}},{\"id\":\"U87iZ6xsoI\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Scholarship ShortCuts\",\"col\":12}},{\"id\":\"jMxRstkS1j\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Trust\",\"col\":4}},{\"id\":\"Je-3nSjL2b\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"School/College\",\"col\":4}},{\"id\":\"X0A-Ra-hrP\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"fs1eOgMjTW\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Number of Students\",\"col\":4}},{\"id\":\"6UJHpO3T6V\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Trust\",\"col\":4}}]",
+ "content": "[{\"id\":\"9xoqDlWWOp\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Scholarship</span>\",\"col\":12}},{\"id\":\"jMxRstkS1j\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Trust\",\"col\":4}},{\"id\":\"Je-3nSjL2b\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"School/College\",\"col\":4}},{\"id\":\"X0A-Ra-hrP\",\"type\":\"spacer\",\"data\":{\"col\":3}},{\"id\":\"Pj_cfZKwFG\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Number Of Students\",\"col\":4}},{\"id\":\"Dm3QEQg9WG\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Number of trusts\",\"col\":4}},{\"id\":\"yJOHYiuRH5\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Academic Entry\",\"col\":4}},{\"id\":\"oI_NkVqIU-\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending Scheduled Entry\",\"col\":4}}]",
  "creation": "2025-04-15 16:28:10.621073",
- "custom_blocks": [
-  {
-   "custom_block_name": "Scholarship ShortCuts",
-   "label": "Scholarship ShortCuts"
-  }
- ],
+ "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
  "for_user": "",
@@ -18,18 +13,26 @@
  "is_hidden": 0,
  "label": "Scholarship",
  "links": [],
- "modified": "2025-04-15 18:25:05.937208",
+ "modified": "2025-04-23 12:39:10.509466",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship",
  "number_cards": [
   {
-   "label": "Number of Students",
-   "number_card_name": "Students"
+   "label": "Pending Academic Entry",
+   "number_card_name": "Academic Entry"
   },
   {
-   "label": "Trust",
+   "label": "Number Of Students",
+   "number_card_name": "Student"
+  },
+  {
+   "label": "Number of trusts",
    "number_card_name": "Trust"
+  },
+  {
+   "label": "Pending Scheduled Entry",
+   "number_card_name": "Scheduled Entry"
   }
  ],
  "owner": "Administrator",

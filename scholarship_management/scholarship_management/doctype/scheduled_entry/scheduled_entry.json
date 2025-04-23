@@ -10,7 +10,7 @@
   "student_academic_record",
   "student_record",
   "maa_code",
-  "name1",
+  "student_name",
   "percentage",
   "number_of_call_times",
   "interview_place",
@@ -28,14 +28,6 @@
   "connections_tab"
  ],
  "fields": [
-  {
-   "fetch_from": "student_academic_record.student_name",
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Name",
-   "reqd": 1
-  },
   {
    "fetch_from": "student_academic_record.interview_place",
    "fieldname": "interview_place",
@@ -174,6 +166,14 @@
    "fieldtype": "Tab Break",
    "label": "Connections",
    "show_dashboard": 1
+  },
+  {
+   "fetch_from": "student_academic_record.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -184,7 +184,7 @@
    "link_fieldname": "scheduled_entry"
   }
  ],
- "modified": "2025-04-07 12:16:45.430521",
+ "modified": "2025-04-23 17:00:59.164937",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scheduled Entry",

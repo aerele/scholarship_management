@@ -18,7 +18,7 @@
   "outstanding_amount",
   "scheduled_entry",
   "column_break_hscj",
-  "name1",
+  "student_name",
   "annual_educational_expenses",
   "expected_scholarship_amount",
   "travelling_expense",
@@ -32,14 +32,6 @@
   "connections_tab"
  ],
  "fields": [
-  {
-   "fetch_from": "student_record.student_name",
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "label": "Name",
-   "read_only": 1,
-   "reqd": 1
-  },
   {
    "fieldname": "annual_house_hold_income",
    "fieldtype": "Float",
@@ -86,8 +78,7 @@
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "label": "Photo",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "remarks",
@@ -105,12 +96,11 @@
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "student_record.maa_code",
+   "fetch_from": "student_academic_record.maa_code",
    "fieldname": "maa_code",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Maa code",
-   "options": "Student",
    "read_only": 1,
    "reqd": 1
   },
@@ -193,6 +183,14 @@
    "label": "Scheduled Entry",
    "options": "Scheduled Entry",
    "reqd": 1
+  },
+  {
+   "fetch_from": "student_record.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "label": "Student Name",
+   "read_only": 1,
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -203,7 +201,7 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2025-04-07 12:15:47.838381",
+ "modified": "2025-04-23 17:06:42.898825",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship Sanction",

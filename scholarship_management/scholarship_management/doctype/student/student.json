@@ -1,13 +1,13 @@
 {
  "actions": [],
  "allow_import": 1,
- "autoname": "field:student_id",
+ "autoname": "naming_series:",
  "creation": "2025-03-03 18:10:59.877796",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "student_information_section",
-  "student_id",
+  "naming_series",
   "student_name",
   "date_of_birth",
   "age",
@@ -31,14 +31,6 @@
    "fieldname": "student_information_section",
    "fieldtype": "Section Break",
    "label": "Student Information"
-  },
-  {
-   "fieldname": "student_id",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Student ID",
-   "reqd": 1,
-   "unique": 1
   },
   {
    "fieldname": "student_name",
@@ -65,8 +57,7 @@
   {
    "fieldname": "photo",
    "fieldtype": "Attach Image",
-   "label": "Photo",
-   "reqd": 1
+   "label": "Photo"
   },
   {
    "fieldname": "interview_place",
@@ -145,6 +136,14 @@
    "fieldtype": "Tab Break",
    "label": "Connections",
    "show_dashboard": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "options": "ST-",
+   "reqd": 1
   }
  ],
  "image_field": "photo",
@@ -152,7 +151,7 @@
  "links": [
   {
    "link_doctype": "Academic Entry",
-   "link_fieldname": "select_student"
+   "link_fieldname": "student_id"
   },
   {
    "link_doctype": "Scheduled Entry",
@@ -171,11 +170,11 @@
    "link_fieldname": "link_name"
   }
  ],
- "modified": "2025-04-07 12:15:21.033328",
+ "modified": "2025-04-23 13:02:38.395713",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Student",
- "naming_rule": "By fieldname",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -213,6 +212,7 @@
    "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

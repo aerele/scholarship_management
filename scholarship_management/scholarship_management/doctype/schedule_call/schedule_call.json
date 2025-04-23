@@ -15,7 +15,7 @@
   "interview_place",
   "column_break_fayz",
   "stream",
-  "name1",
+  "student_name",
   "study_group",
   "course",
   "repeat",
@@ -45,12 +45,6 @@
    "fieldtype": "Link",
    "label": "Stream",
    "options": "Stream"
-  },
-  {
-   "fieldname": "name1",
-   "fieldtype": "Link",
-   "label": "Student Name",
-   "options": "Student"
   },
   {
    "fieldname": "study_group",
@@ -118,12 +112,18 @@
    "fieldtype": "Table",
    "label": "Record",
    "options": "Record"
+  },
+  {
+   "fieldname": "student_name",
+   "fieldtype": "Link",
+   "label": "Student Name",
+   "options": "Student"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-04-07 12:16:05.938963",
+ "modified": "2025-04-23 17:00:01.147791",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Schedule Call",

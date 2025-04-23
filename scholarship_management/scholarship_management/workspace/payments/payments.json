@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"2FVJTTzBsA\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Payments</span>\",\"col\":12}},{\"id\":\"UE9DKD1J_h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheduled Entry\",\"col\":3}},{\"id\":\"IJgPpI9KtA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scholarship Sanction\",\"col\":3}},{\"id\":\"Z-kIPR7ORP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"gbeG20AXpt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"1BcIuHAmAg\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xn4TOApmAc\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Scheduled Entry &amp; Call Process</span>\",\"col\":12}},{\"id\":\"alj0kIPCE4\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Scheduled Entry\",\"col\":4}},{\"id\":\"qDnNWYZwHi\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Schedule Call\",\"col\":3}},{\"id\":\"LOE9-ddfLP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Jd1NbFMlQo\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "content": "[{\"id\":\"2FVJTTzBsA\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Payments</span>\",\"col\":12}},{\"id\":\"UE9DKD1J_h\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scheduled Entry\",\"col\":3}},{\"id\":\"IJgPpI9KtA\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scholarship Sanction\",\"col\":3}},{\"id\":\"Z-kIPR7ORP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Payment Entry\",\"col\":3}},{\"id\":\"gbeG20AXpt\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"vOvH1WYKj7\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Scholarship Sanction\",\"col\":4}},{\"id\":\"1BcIuHAmAg\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"xn4TOApmAc\",\"type\":\"paragraph\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Scheduled Entry &amp; Call Process</span>\",\"col\":12}},{\"id\":\"alj0kIPCE4\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Scheduled Entry\",\"col\":4}},{\"id\":\"qDnNWYZwHi\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Schedule Call\",\"col\":3}},{\"id\":\"LOE9-ddfLP\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Jd1NbFMlQo\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
  "creation": "2025-04-15 17:15:18.852770",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Payments",
  "links": [],
- "modified": "2025-04-15 18:28:30.589540",
+ "modified": "2025-04-23 12:47:25.038626",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Payments",
@@ -22,6 +22,11 @@
  "parent_page": "Scholarship",
  "public": 1,
  "quick_lists": [
+  {
+   "document_type": "Scholarship Sanction",
+   "label": "Scholarship Sanction",
+   "quick_list_filter": "[[\"Scholarship Sanction\",\"status\",\"=\",\"Not Paid\",false]]"
+  },
   {
    "document_type": "Scheduled Entry",
    "label": "Scheduled Entry",

@@ -21,7 +21,7 @@ frappe.ui.form.on("Schedule Call", {
 					acceptreject: frm.doc.acceptreject,
 					widow: frm.doc.widow,
 					type_of_postage: frm.doc.type_of_postage,
-					name1: frm.doc.name1,
+					student_name: frm.doc.student_name,
 					repeat: frm.doc.repeat
 				},
 				callback: () => {
