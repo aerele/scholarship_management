@@ -7,7 +7,7 @@ class ScheduleCall(Document):
 	def search_records(self, **kwargs):
 		fields = frappe._dict(kwargs)
 		
-		student_name_filter = fields.get("name1")
+		student_name_filter = fields.get("student_name")
 		maa_code = fields.get("maa_code")
 		present_academic_year = fields.get("present_academic_year")
 		from_date = fields.get("from")
@@ -27,7 +27,7 @@ class ScheduleCall(Document):
 		query = (
 			frappe.qb.from_(academic_entry)
 			.join(student)
-			.on(academic_entry.name == student.name)
+			.on(academic_entry.select_student == student.name)
 			.select(
 				academic_entry.maa_code,
 				student.student_name,
@@ -75,7 +75,7 @@ class ScheduleCall(Document):
 		for row in results:
 			child_row = self.append("record", {})
 			child_row.maa_code = row.get("maa_code")
-			child_row.name1 = row.get("student_name")
+			child_row.student_name = row.get("student_name")
 			child_row.rejected = "No" if row.get("accept") == "Yes" else "Yes"
 			child_row.call_letter = row.get("call_letter", "")
 			child_row.call_date = row.get("call_date", "")

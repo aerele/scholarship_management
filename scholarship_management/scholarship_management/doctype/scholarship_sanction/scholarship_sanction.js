@@ -1,7 +1,7 @@
 frappe.ui.form.on("Scholarship Sanction", {
 	refresh(frm) {
 
-		if (!frm.is_new() && frm.doc.docstatus === 1) {
+		if (!frm.is_new() && frm.doc.docstatus === 1 && frm.doc.status !== "Paid") {
 			frm.add_custom_button(
 				__("Create Payment Entry"),
 				function () {

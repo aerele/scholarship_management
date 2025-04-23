@@ -8,16 +8,14 @@
  "engine": "InnoDB",
  "field_order": [
   "student_academic_record",
-  "call_date",
-  "call_time",
-  "number_of_call_times",
-  "remarks",
-  "column_break_grgv",
   "student_record",
-  "name1",
   "maa_code",
+  "student_name",
   "percentage",
+  "number_of_call_times",
   "interview_place",
+  "remarks",
+  "call_time",
   "column_break_ifco",
   "previous_studygroup",
   "present_studygroup",
@@ -25,18 +23,11 @@
   "present_studying_course",
   "previous_yearstudying",
   "present_yearstudying",
+  "call_date",
   "amended_from",
   "connections_tab"
  ],
  "fields": [
-  {
-   "fetch_from": "student_academic_record.student_name",
-   "fieldname": "name1",
-   "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Student Name",
-   "reqd": 1
-  },
   {
    "fetch_from": "student_academic_record.interview_place",
    "fieldname": "interview_place",
@@ -144,7 +135,7 @@
    "label": "Call Date"
   },
   {
-   "fetch_from": "student_academic_record.student_id",
+   "fetch_from": "student_academic_record.select_student",
    "fieldname": "student_record",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -177,8 +168,12 @@
    "show_dashboard": 1
   },
   {
-   "fieldname": "column_break_grgv",
-   "fieldtype": "Column Break"
+   "fetch_from": "student_academic_record.student_name",
+   "fieldname": "student_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Student Name",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
@@ -189,7 +184,7 @@
    "link_fieldname": "scheduled_entry"
   }
  ],
- "modified": "2025-04-23 13:01:08.377076",
+ "modified": "2025-04-23 17:00:59.164937",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scheduled Entry",
@@ -231,7 +226,6 @@
    "share": 1
   }
  ],
- "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

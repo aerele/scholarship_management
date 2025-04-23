@@ -25,26 +25,28 @@ class AcademicEntry(Document):
 
 		if last_code and last_code.startswith("MFVA"):
 			last_number = int(last_code[4:])  
+
 		else:
 			last_number = 0  
 
 		new_number = last_number + 1
-		num_length = len(str(last_number))
+		num_length = len(str(last_code.startswith("MFVA")))
 
 		return f"MFVA{new_number:0{num_length}d}"
 
 	def update_new_student_maa_code(self):
 		"""Update student maa code only new student"""
-		student_name = frappe.db.get_value("Student", {"name": self.name})
+		student_name = frappe.db.get_value("Student", {"name": self.select_student})
 		if student_name:
-			frappe.db.set_value("Student", {"name": self.name}, "maa_code", self.maa_code)
+			frappe.db.set_value("Student", {"name": self.select_student}, "maa_code", self.maa_code)
 
 	def validate_academic_entry(self):
 		"""Validate duplicate academic entry"""
 		academic_entry = frappe.get_list(
 			"Academic Entry",
 			filters={
-				"name": self.name,
+				"select_student": self.select_student,
+				"student_name": self.student_name,
 				"previous_studygroup": self.previous_studygroup,
 				"previous_academic_year": self.previous_academic_year,
 				"previous_yearstudying": self.previous_yearstudying,
@@ -64,8 +66,8 @@ class AcademicEntry(Document):
 	def fetch_existing_maa_code(self):
 		"""Fetch MAA code for an existing student"""
 		existing_maa_code = frappe.get_value(
-			"Academic Entry", 
-			{"name": self.name, "docstatus": 1}, 
+			"Student", 
+			{"name": self.select_student}, 
 			"maa_code"
 		)
 		if existing_maa_code:
@@ -80,7 +82,7 @@ class AcademicEntry(Document):
 	def update_student_information(self):
 		scholarship = frappe.get_list(
 			"Scholarship Sanction",
-			filters={"maa_code": self.maa_code},
+			filters={"maa_code": self.maa_code, "docstatus": [0,1]},
 			fields=["grand_total","student_academic_record", "scholarship_sanctioned_date"],
 			order_by="creation DESC",
 			limit=1
@@ -104,10 +106,10 @@ class AcademicEntry(Document):
 				self.last_percentage = student_academic_record.get("percentage_application_done")
 
 @frappe.whitelist()
-def update_student_mark_for_existing_student(name):
+def update_student_mark_for_existing_student(student_id):
 	"""Update student marks for existing student"""
 	existing_entry = frappe.get_value("Academic Entry", 
-									  {"name": name, "docstatus": 1}, 
+									  {"student_id": student_id, "docstatus": 1}, 
 									  ["ssc_result", "hsc_result"])
 	if existing_entry:
 		ssc_result, hsc_result = existing_entry

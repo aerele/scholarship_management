@@ -20,7 +20,7 @@ frappe.ui.form.on("Student", {
 
 	create_academic: function (frm) {
 		frappe.new_doc("Academic Entry", {
-			student_id: frm.doc.name
+			select_student: frm.doc.name
 		})
 	},
 	render_address: function (frm) {

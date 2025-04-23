@@ -61,7 +61,7 @@ def set_payment_entry(source_name, target_doc=None):
 		target_doc.party_type = "Student"
 		target_doc.party = source_doc.student_record
 		target_doc.party_bank_account = source_doc.bank_account
-		target_doc.party_name = source_doc.name1
+		target_doc.party_name = source_doc.student_name
 		target_doc.bank_account = None
 		
 	doclist = get_mapped_doc(
