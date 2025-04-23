@@ -8,37 +8,39 @@
  "engine": "InnoDB",
  "field_order": [
   "student_information_section",
-  "select_student",
   "student_id",
-  "last_scholarship_amount",
-  "last_studying_course",
-  "widow",
+  "student_name",
+  "interview_place",
   "student_remark",
   "column_break_mraf",
-  "student_name",
-  "last_scholarship_date",
+  "last_studying_course",
   "last_percentage",
+  "last_scholarship_date",
+  "last_scholarship_amount",
+  "column_break_fxgu",
+  "widow",
   "case",
-  "interview_place",
   "academic_information_section",
   "previous_studygroup",
   "previous_studying_course",
   "previous_academic_year",
   "previous_yearstudying",
-  "present_academic_year",
-  "present_yearstudying",
-  "stream",
-  "ssc_result",
-  "application_receive_date",
   "column_break_lvcl",
-  "maa_code",
-  "percentage_application_done",
   "present_studygroup",
   "present_studyingcourse",
+  "present_academic_year",
+  "present_yearstudying",
   "present_medium",
+  "column_break_ckif",
+  "ssc_result",
   "hsc_result",
-  "repeat",
   "schoolcollege",
+  "maa_code",
+  "column_break_eizw",
+  "application_receive_date",
+  "percentage_application_done",
+  "stream",
+  "repeat",
   "amended_from",
   "section_break_qgvr",
   "type_of_postage",
@@ -174,11 +176,12 @@
    "search_index": 1
   },
   {
-   "fetch_from": "select_student.student_id",
+   "fetch_from": "select_student.case",
    "fieldname": "student_id",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Student ID",
+   "options": "Student",
    "reqd": 1
   },
   {
@@ -188,7 +191,7 @@
    "no_copy": 1
   },
   {
-   "fetch_from": "select_student.student_name",
+   "fetch_from": "student_id.student_name",
    "fieldname": "student_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -223,14 +226,14 @@
    "label": "Last Percentage"
   },
   {
-   "fetch_from": "select_student.case",
+   "fetch_from": "student_id.case",
    "fieldname": "case",
    "fieldtype": "Data",
    "label": "Case",
    "read_only": 1
   },
   {
-   "fetch_from": "select_student.widow_case",
+   "fetch_from": "student_id.widow_case",
    "fieldname": "widow",
    "fieldtype": "Data",
    "label": "Widow",
@@ -257,10 +260,11 @@
    "options": "Type of Postage Master"
   },
   {
-   "fieldname": "select_student",
+   "fetch_from": "select_student.case",
+   "fieldname": "student_id",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Select Student",
+   "label": "Student ID",
    "options": "Student",
    "reqd": 1
   },
@@ -295,6 +299,18 @@
    "fieldtype": "Tab Break",
    "label": "Connections",
    "show_dashboard": 1
+  },
+  {
+   "fieldname": "column_break_fxgu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_ckif",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_eizw",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -309,7 +325,7 @@
    "link_fieldname": "student_academic_record"
   }
  ],
- "modified": "2025-04-12 13:49:09.656663",
+ "modified": "2025-04-23 13:56:55.700694",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Academic Entry",
@@ -351,6 +367,7 @@
    "share": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

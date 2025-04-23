@@ -67,7 +67,7 @@ def get_data(filters):
             continue
 
         # Student filters
-        student_doc = frappe.get_doc("Student", academic_doc.select_student)
+        student_doc = frappe.get_doc("Student", academic_doc.student_id)
 
         if filters.get("gender") and filters["gender"] != student_doc.gender:
             continue

@@ -1,5 +1,9 @@
 import frappe
 from datetime import datetime, date
+from frappe.utils import (
+	getdate,
+    nowdate
+)
 from frappe.model.document import Document
 
 from frappe.desk.page.setup_wizard.setup_wizard import make_records
@@ -35,9 +39,8 @@ class Student(Document):
 def calculate_age(date_of_birth):
     if not date_of_birth:
         return 0 
-
-    dob = datetime.strptime(date_of_birth, "%Y-%m-%d").date()
-    today = date.today()
+    dob = getdate(date_of_birth)
+    today = getdate(nowdate())
 
     age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
     

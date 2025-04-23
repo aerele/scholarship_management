@@ -27,12 +27,12 @@ class ScheduleCall(Document):
 		query = (
 			frappe.qb.from_(academic_entry)
 			.join(student)
-			.on(academic_entry.student_id == student.student_id)
+			.on(academic_entry.name == student.name)
 			.select(
 				academic_entry.maa_code,
 				student.student_name,
 				# academic_entry.rejected,  
-				student.student_id,
+				student.name,
 				academic_entry.name,
 			)
 		)
@@ -82,8 +82,8 @@ class ScheduleCall(Document):
 			child_row.call_time = row.get("call_time", "")
 			child_row.academic_record = row.get("name", "")
 
-			student_id = row.get("student_id")
-			address_dict = get_student_address(student_id)
+			name = row.get("name")
+			address_dict = get_student_address(name)
 			child_row.address = address_dict.get("address", "")
 			child_row.phone_no = address_dict.get("phone", "")
 		
@@ -116,12 +116,12 @@ class ScheduleCall(Document):
 			scheduled_entry.insert() 
 		return scheduled_entry.name
 	
-def get_student_address(student_id):
+def get_student_address(name):
 	address_list = frappe.get_all("Address", ["name"])
 	for address in address_list:
 		address_doc = frappe.get_doc("Address", address.name)
 		for link in address_doc.links:
-			if link.link_doctype == "Student" and link.link_name == student_id:
+			if link.link_doctype == "Student" and link.link_name == name:
 				return {
 					"address": address_doc.address_line1,
 					"city": address_doc.city,
