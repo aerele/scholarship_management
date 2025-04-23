@@ -86,8 +86,7 @@
    "fieldname": "photo",
    "fieldtype": "Attach Image",
    "label": "Photo",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "remarks",
@@ -203,7 +202,7 @@
    "link_fieldname": "reference_name"
   }
  ],
- "modified": "2025-04-07 12:15:47.838381",
+ "modified": "2025-04-23 13:25:42.585287",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Scholarship Sanction",

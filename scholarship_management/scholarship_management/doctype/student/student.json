@@ -65,8 +65,7 @@
   {
    "fieldname": "photo",
    "fieldtype": "Attach Image",
-   "label": "Photo",
-   "reqd": 1
+   "label": "Photo"
   },
   {
    "fieldname": "interview_place",
@@ -171,7 +170,7 @@
    "link_fieldname": "link_name"
   }
  ],
- "modified": "2025-04-07 12:15:21.033328",
+ "modified": "2025-04-23 13:02:38.395713",
  "modified_by": "Administrator",
  "module": "Scholarship Management",
  "name": "Student",
