@@ -9,8 +9,8 @@ frappe.ui.form.on("Academic Entry", {
 		}
 	},
 
-	select_student: function(frm) {
-		if (frm.doc.select_student) {
+	student_id: function(frm) {
+		if (frm.doc.student_id) {
 			frm.trigger("update_student_mark_for_existing_student");
 		}
 	},
@@ -19,7 +19,7 @@ frappe.ui.form.on("Academic Entry", {
 		frappe.call({
 			method: "scholarship_management.scholarship_management.doctype.academic_entry.academic_entry.update_student_mark_for_existing_student",
 			args:{
-				student_id: frm.doc.select_student
+				name: frm.doc.student_id
 			},
 			callback: function(r){
 				if (r.message){
@@ -57,7 +57,7 @@ frappe.ui.form.on("Academic Entry", {
 	create_schedule_entry: function (frm) {
 		frappe.new_doc("Scheduled Entry", {
 			student_academic_record: frm.doc.name,
-			student_record: frm.doc.select_student
+			student_record: frm.doc.student_id
 		})
 	}
 });

@@ -8,27 +8,28 @@
  "field_order": [
   "student_record",
   "student_academic_record",
-  "maa_code",
   "annual_house_hold_income",
   "affordability_of_educational_expenses",
   "grand_total",
   "target_percentage",
-  "photo",
   "mode_of_payment",
-  "outstanding_amount",
-  "scheduled_entry",
   "column_break_hscj",
-  "name1",
   "annual_educational_expenses",
   "expected_scholarship_amount",
   "travelling_expense",
   "scholarship_sanctioned_date",
-  "remarks",
   "trust",
   "bank_account",
+  "remarks",
+  "column_break_gwfi",
+  "scheduled_entry",
   "company",
-  "amended_from",
+  "name1",
+  "photo",
+  "maa_code",
+  "outstanding_amount",
   "status",
+  "amended_from",
   "connections_tab"
  ],
  "fields": [
@@ -44,42 +45,49 @@
    "fieldname": "annual_house_hold_income",
    "fieldtype": "Float",
    "label": "Annual House Hold Income",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "annual_educational_expenses",
    "fieldtype": "Float",
    "label": "Annual Educational Expenses",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "affordability_of_educational_expenses",
    "fieldtype": "Float",
    "label": "Affordability Of Educational Expenses",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "expected_scholarship_amount",
    "fieldtype": "Float",
    "label": "Expected Scholarship Amount",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "travelling_expense",
    "fieldtype": "Int",
    "label": "Travelling Expense",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "target_percentage",
    "fieldtype": "Int",
    "label": "Target Percentage",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "scholarship_sanctioned_date",
    "fieldtype": "Date",
-   "label": "Scholarship Sanctioned Date"
+   "label": "Scholarship Sanctioned Date",
+   "reqd": 1
   },
   {
    "fetch_from": "student_record.photo",
@@ -97,21 +105,21 @@
    "fieldname": "trust",
    "fieldtype": "Link",
    "label": "Trust",
-   "options": "Trust"
+   "options": "Trust",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_hscj",
    "fieldtype": "Column Break"
   },
   {
-   "fetch_from": "student_record.maa_code",
+   "fetch_from": "student_academic_record.maa_code",
    "fieldname": "maa_code",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Maa code",
    "options": "Student",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -136,19 +144,22 @@
    "fieldname": "mode_of_payment",
    "fieldtype": "Select",
    "label": "Mode Of Payment",
-   "options": "\nWire Transfer\nCheque"
+   "options": "\nWire Transfer\nCheque",
+   "reqd": 1
   },
   {
    "fieldname": "bank_account",
    "fieldtype": "Link",
    "label": "Bank Account",
-   "options": "Bank Account"
+   "options": "Bank Account",
+   "reqd": 1
   },
   {
    "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
-   "options": "Company"
+   "options": "Company",
+   "remember_last_selected_value": 1
   },
   {
    "fieldname": "outstanding_amount",
@@ -162,7 +173,8 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Amount Sanctioned",
-   "non_negative": 1
+   "non_negative": 1,
+   "reqd": 1
   },
   {
    "fieldname": "student_academic_record",
@@ -192,6 +204,10 @@
    "label": "Scheduled Entry",
    "options": "Scheduled Entry",
    "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gwfi",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
@@ -235,6 +251,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []
