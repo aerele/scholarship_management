@@ -50,3 +50,31 @@ class ScholarshipSanction(Document):
 		if missing_fields:
 			frappe.throw("The following fields are mandatory:<br>" + "<br>".join(missing_fields))
 
+
+@frappe.whitelist()
+def set_payment_entry(source_name, target_doc=None):
+	from frappe.model.mapper import get_mapped_doc
+
+	def post_process(source_doc, target_doc):
+		target_doc.payment_type = "Pay"
+		target_doc.mode_of_payment = source_doc.mode_of_payment
+		target_doc.party_type = "Student"
+		target_doc.party = source_doc.student_record
+		target_doc.party_bank_account = source_doc.bank_account
+		target_doc.party_name = source_doc.name1
+		target_doc.bank_account = None
+		
+	doclist = get_mapped_doc(
+		"Scholarship Sanction",
+		source_name,
+		{
+			"Scholarship Sanction": {
+				"doctype": "Payment Entry",
+				"validation": {"docstatus": ["=", 1]},
+			}
+		},
+		target_doc,
+		post_process,
+	)
+
+	return doclist
