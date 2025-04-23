@@ -30,27 +30,23 @@ class ScholarshipSanction(Document):
 			self.status = "Not Paid"
 
 	def check_mandatory_fields(self):
+		missing_fields = []
+
 		if not self.annual_house_hold_income:
-			frappe.throw("Annual House Hold Income is mandatory.")
+			missing_fields.append("• Annual House Hold Income")
 		if not self.affordability_of_educational_expenses:
-			frappe.throw("Affordability Of Educational Expenses is mandatory.")
+			missing_fields.append("• Affordability Of Educational Expenses")
 		if not self.grand_total:
-			frappe.throw("Amount Sanctioned is mandatory.")
+			missing_fields.append("• Amount Sanctioned")
 		if not self.target_percentage:
-			frappe.throw("Target Percentage is mandatory.")
-		if not self.grand_total:
-			frappe.throw("Amount Sanctioned is mandatory.")
+			missing_fields.append("• Target Percentage")
 		if not self.mode_of_payment:
-			frappe.throw("Mode Of Payment is mandatory.")
-		if not self.company:
-			frappe.throw("Company is mandatory.")
-		if not self.bank_account:
-			frappe.throw("Bank Account is mandatory.")
-		if not self.trust:
-			frappe.throw("Trust is mandatory.")
-		if not self.scholarship_sanctioned_date:
-			frappe.throw("Scholarship Sanctioned Date is mandatory.")
+			missing_fields.append("• Mode Of Payment")
 		if not self.annual_educational_expenses:
-			frappe.throw("Annual Educational Expenses is mandatory.")
+			missing_fields.append("• Annual Educational Expenses")
 		if not self.expected_scholarship_amount:
-			frappe.throw("Expected Scholarship Amount is mandatory.")
+			missing_fields.append("• Expected Scholarship Amount")
+
+		if missing_fields:
+			frappe.throw("The following fields are mandatory:<br>" + "<br>".join(missing_fields))
+

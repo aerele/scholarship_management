@@ -5,7 +5,7 @@ frappe.ui.form.on("Scholarship Sanction", {
 			if (frm.doc.student_record) {
 				return {
 					filters: {
-						"student_id": frm.doc.student_record,
+						"name": frm.doc.student_record,
 						"docstatus": 1
 					}
 				};

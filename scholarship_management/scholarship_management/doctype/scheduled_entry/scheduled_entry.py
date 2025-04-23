@@ -19,7 +19,7 @@ class ScheduledEntry(Document):
 			doc.student_academic_record = self.student_academic_record
 			doc.status = 'Not Paid'
 			doc.scheduled_entry = self.name
-			doc.insert()
+			doc.insert(ignore_mandatory=True)
 			frappe.msgprint("Scholarship Sanction created successfully for student record {}".format(get_link_to_form("Scholarship Sanction", doc.name)))
 
 	def validate_create_scholarship_sanction(self):

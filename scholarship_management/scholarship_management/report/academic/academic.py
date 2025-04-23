@@ -62,12 +62,12 @@ def get_data(filters):
 	academic_entry = frappe.get_list(
 		"Academic Entry",
 		filters=academic_filters,
-		fields=["name", "maa_code", "student_name", "present_academic_year", "present_studyingcourse", "present_yearstudying", "select_student","repeat","present_studygroup", "percentage_application_done"]
+		fields=["name", "maa_code", "student_name", "present_academic_year", "present_studyingcourse", "present_yearstudying", "student_id","repeat","present_studygroup", "percentage_application_done"]
 	)
 
 	for academic in academic_entry:
 		academic_doc = frappe.get_doc("Academic Entry", academic.name)
-		student_doc = frappe.get_doc("Student", academic_doc.select_student)
+		student_doc = frappe.get_doc("Student", academic_doc.student_id)
 
 		# Apply filters from Student Doctype
 		if filters.get("gender") and filters["gender"] != student_doc.gender:
